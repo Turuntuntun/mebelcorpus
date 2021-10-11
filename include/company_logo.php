@@ -1,1 +1,0 @@
-<img width="204" alt="ТД Андрей Санкт-Петербург" src="/include/logo-big.png" title="ТД Андрей Санкт-Петербург">
