@@ -1,0 +1,21 @@
+.suggestion-items-spinner {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    margin: -15px 0 -15px;
+
+    border: 6px solid $color1;
+    border-right-color: transparent;
+    border-radius: 50%;
+
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-name: rotate-spinner;
+    animation-timing-function: linear;
+}

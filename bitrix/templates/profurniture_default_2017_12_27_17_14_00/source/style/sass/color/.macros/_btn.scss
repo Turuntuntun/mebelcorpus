@@ -1,0 +1,97 @@
+.rsgopro {
+  .btn1, .btn-primary, {
+    color: $btn1-text-color;
+    background-color: $btn1-bg-color;
+    border-color: $btn1-bg-color;
+    border-bottom-color: $btn1-bg-color-hover;
+    
+    &:hover {
+      color: $btn1-text-color-hover;
+      background-color: $btn1-bg-color-hover;
+      border-color: $btn1-bg-color-hover;
+    }
+  }
+
+  .btn1-darken, .btn-primary-darken {
+    color: $btn1darken-text-color;
+    background-color: $btn1darken-bg-color;
+    border-color: $btn1darken-bg-color;
+    border-bottom-color: $btn1darken-bg-color-hover;
+
+    &:hover {
+      color: $btn1darken-text-color-hover;
+      background-color: $btn1darken-bg-color-hover;
+      border-color: $btn1darken-bg-color;
+    }
+  }
+  
+  .btn2, .btn-default {
+    color: $btn2-text-color;
+    background-color: $btn2-bg-color;
+    border-color: $btn2-bg-color;
+    border-bottom-color: $btn2-bg-color-hover;
+    
+    &:hover {
+      color: $btn2-text-color-hover;
+      background-color: $btn2-bg-color-hover;
+      border-color: $btn2-bg-color-hover;
+    }
+  }
+  
+  .btn3 {
+    color: $btn3-text-color;
+    background-color: $btn3-bg-color;
+    border-color: $btn3-bg-color;
+    border-bottom-color: $btn3-bg-color-hover;
+    
+    &:hover {
+      color: $btn3-text-color-hover;
+      background-color: $btn3-bg-color-hover;
+      border-color: $btn3-bg-color-hover;
+    }
+  }
+}
+
+.body {
+  .bx_ordercart.bx_blue .bx_ordercart_order_pay_center .checkout,
+  .sale-acountpay-fixedpay-item,
+  .bx_profile .btn-md.main-profile-submit,
+  .sale-profile-detail-form .btn-md:first-of-type {
+    color: $btn1-text-color;
+    background-color: $btn1-bg-color;
+    border-color: $btn1-bg-color;
+    border-bottom-color: $btn1-bg-color-hover;
+
+    &:hover {
+      color: $btn1-text-color;
+      background-color: $btn1-bg-color-hover;
+      border-color: $btn1-bg-color-hover;
+    }
+  }
+
+  .bx_ordercart.bx_blue .bx_bt_button,
+  .sale-order-detail .sale-order-detail-about-order-inner-container-repeat-button,
+  .sale-order-detail .sale-order-detail-payment-options-methods-button-element,
+  .bx_my_order_cancel input[type="submit"],
+  .bx_profile .btn-md,
+  .sale-profile-detail-form .btn-md {
+		color: $btn2-text-color;
+    background-color: $btn2-bg-color;
+    border-color: $btn2-bg-color;
+    border-bottom-color: $btn2-bg-color-hover;
+
+    &:hover {
+      color: $btn2-text-color;
+      background-color: $btn2-bg-color-hover;
+      border-color: $btn2-bg-color-hover;
+    }
+  }
+
+  .sale-personal-account-wallet-currency-item {
+    color: $primary-link-color;
+  }
+
+  .sale-acountpay-pp-company.bx-selected .sale-acountpay-pp-company-graf-container {
+    border-color: $primary-border-color;
+  }
+}

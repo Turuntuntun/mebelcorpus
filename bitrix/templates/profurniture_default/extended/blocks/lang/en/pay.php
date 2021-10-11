@@ -1,0 +1,9 @@
+<?php
+$MESS['BLOCKS.PAY.ADD2BASKET'] = 'Add to cart';
+$MESS['BLOCKS.PAY.ADD2BASKET.TITLE'] = 'Add to cart';
+
+$MESS['BLOCKS.PAY.INBASKET'] = 'In cart';
+$MESS['BLOCKS.PAY.INBASKET.TITLE'] = 'In cart';
+
+$MESS['BLOCKS.PAY.BUY1CLICK'] = 'Buy 1 click';
+$MESS['BLOCKS.PAY.BUY1CLICK.TITLE'] = 'Buy 1 click';

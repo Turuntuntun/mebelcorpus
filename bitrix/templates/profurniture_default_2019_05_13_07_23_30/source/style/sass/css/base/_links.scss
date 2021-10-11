@@ -1,0 +1,67 @@
+a,
+.like-a {
+	@include mix-links($default-link-color);
+}
+a.fullback .icon{
+	width:7px;
+	height:14px;
+	margin-right:5px;
+	margin-bottom:3px;
+	background-position:0px -531px;
+}
+a.fullback:hover .icon{
+	background-position:-21px -531px;
+}
+.link-dashed a,
+a.link-dashed {
+	text-decoration: none;
+	color: $default-link-color;
+	border-bottom: 1px dashed $default-link-color;
+
+	&:hover {
+		color: $default-link-color-hover;
+		border-bottom: 1px transparent;
+	}
+
+	&-in {
+		text-decoration: none;
+		border-bottom: none;
+	
+		&:hover {
+			.link-dashed-in {
+				color: $default-link-color;
+				border-bottom: 1px transparent;
+			}
+		}
+	
+		.link-dashed-in {
+			color: $default-link-color;
+			border-bottom: 1px dashed $default-link-color;
+		}
+	}
+}
+
+.link-dashed.m-color-primary a,
+a.link-dashed.m-color-primary {
+    color: $primary-link-color;
+    border-bottom: 1px dashed $primary-link-color;
+
+    &:hover {
+		color: $primary-link-color-hover;
+		border-bottom: 1px transparent;
+	}
+
+    &-in {
+        &:hover {
+			.link-dashed-in.m-color-primary {
+				color: $primary-link-color-hover;
+				border-bottom: 1px transparent;
+			}
+        }
+
+        .link-dashed-in.m-color-primary {
+            color: $primary-link-color;
+			border-bottom: 1px dashed $primary-link-color;
+		}
+    }
+}

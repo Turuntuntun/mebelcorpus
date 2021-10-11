@@ -1,0 +1,44 @@
+.tab-custom-content {
+    &__files {
+        &__link {
+            display: block;
+
+            &:hover {
+                text-decoration: none;
+
+                .tab-custom-content {
+                    &__files {
+                        &__name {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__svg {
+            float: left;
+            width: 44px;
+            height: 47px;
+            fill: $icon-color;
+        }
+
+        &__info {
+            display: block;
+            margin-left: 50px;
+        }
+
+        &__name {
+
+        }
+
+        &__description {
+            color: #000;
+        }
+
+        &__size {
+            color: #999;
+            font-size: 11px;
+        }
+    }
+}

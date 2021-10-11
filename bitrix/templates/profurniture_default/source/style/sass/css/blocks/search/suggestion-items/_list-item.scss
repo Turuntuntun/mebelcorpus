@@ -1,0 +1,47 @@
+.suggestion-items-list-item {
+   
+    &__link {
+        display: block;
+        padding: 6px 20px;
+    }
+
+    &__pic {
+        display: inline-block;
+        max-width: 14px;
+        margin-right: 10px;
+    }
+
+    &__price {
+        color: #828282;
+    }
+
+    &__price-val {
+        color: #4a4a4a;
+    }
+
+    &__phrase {
+        margin-right: 15px;
+    }
+    
+    &.active { 
+        text-decoration: none;	
+        color: #fff;
+       
+        background-color: #899CC7;
+    }
+
+    &.active > &__link {
+        color: #fff;
+    }
+
+    &.active &__price,
+    &.active &__price-val {
+        color: #fff;
+    }
+    
+    &__link:hover,
+    &__link:focus,
+    &__link:active {
+        text-decoration: none;
+    }
+}

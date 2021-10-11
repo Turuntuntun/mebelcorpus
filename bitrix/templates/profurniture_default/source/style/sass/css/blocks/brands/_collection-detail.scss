@@ -1,0 +1,44 @@
+.collection-detail-block {
+    &__desc {
+        color: #878787;
+        font-weight: normal;
+        margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: $screen-md-min - 1) {
+        &__picture {
+            margin-bottom: 1rem;
+            text-align: center; 
+        }
+
+        &__desc {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    }
+
+    @media (min-width: $screen-md-min) {
+        display: flex;
+        align-items: center;
+
+        &__desc {
+            margin-right: 1rem;
+            flex-grow: 1;
+            flex-shrink: 1;
+            min-width: 25rem;
+        }
+
+        &__picture {
+            flex-grow: 0;
+            flex-shrink: 0;
+            max-width: 25rem; 
+        }
+    }
+
+    @media (min-width: $screen-lg-min) {
+        &__desc {
+            margin-left: 4.5rem;
+            margin-right: 4.5rem;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.suggestion-items-form {
+    display: flex;
+    width: 100%;
+
+    &__input {
+        flex: 1 1 0;
+
+        // wtf gopro?
+        .body &[type="text"] {
+            width: 100%;
+            min-width: 0;
+        }
+    }
+
+    &__button {
+        flex: 0 0 auto;
+        margin-left: 10px;
+
+        // wtf gopro?
+        .body & { 
+            padding: 10px 9px; 
+            
+            font: 13px Opensanslight, Arial, Helvetica, sans-serif;
+        }
+    }
+
+    
+}

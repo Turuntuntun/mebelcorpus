@@ -1,0 +1,27 @@
+$selector-size-table: '.c-size-table' !default;
+
+#{$selector-size-table} {
+
+
+    &:hover {
+        text-decoration: none;
+
+        #{$selector-compare} {
+            &__title {
+                border-color: transparent;
+            }
+        }
+    }
+
+    &__title {
+        margin-left: 5px;
+        border-bottom: 1px dashed $default-link-color;
+    }
+
+
+    .svg-icon {
+        width: 16px;
+        height: 16px;
+        fill: #91918f;
+    }
+}

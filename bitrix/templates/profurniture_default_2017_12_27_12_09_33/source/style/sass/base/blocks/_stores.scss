@@ -1,0 +1,21 @@
+.b-stores {
+    &__genamount {
+        color: #888888;
+    }
+
+    .svg-icon {
+        fill: #888888;
+
+        &.empty {
+            fill: $color1;
+        }
+    }
+
+    .svg-icon {
+        position: relative;
+        bottom: 1px;
+        width: 14px;
+        height: 14px;
+        margin: 0 5px;
+    }
+}

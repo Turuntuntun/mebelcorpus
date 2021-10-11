@@ -1,0 +1,43 @@
+.c-scroll2top {
+    position: fixed;
+    right: 55px;
+    bottom: 35px;
+    display: block;
+    width: 44px;
+    height: 44px;
+    color: $btn1-text-color;
+    text-align: center;
+    text-decoration: none;
+    background-color: $btn1-bg-color;
+    border-radius: 50%;
+    transition: opacity .3s;
+    opacity: 0;
+    z-index: 999;
+
+    &:hover {
+        color: $btn1-text-color-hover;
+        background-color: $btn1-bg-color-hover;
+
+        .svg-icon {
+            fill: $btn1-text-color-hover;
+        }
+    }
+
+    &.visible {
+        opacity: 1;
+    }
+
+    .svg-icon {
+        position: relative;
+        top: 11px;
+        width: 16px;
+        height: 16px;
+        fill: $btn1-text-color;
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .c-scroll2top {
+        display: none;
+    }
+}

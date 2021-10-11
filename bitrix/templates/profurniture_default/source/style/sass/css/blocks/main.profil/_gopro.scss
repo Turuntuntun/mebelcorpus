@@ -1,0 +1,48 @@
+.body .bx_profile {
+	.main-profile-block-date-info {
+		strong {
+			color: $gray-text-color;
+			font-weight: normal;
+		}
+		
+		strong + strong {
+			color: inherit;
+		}
+	}
+
+	.form-group {
+		label {
+			color: $gray-text-color;
+		}
+	}
+
+	i {
+		&.btn-md {
+			padding: 0 !important;
+		}
+	}
+
+    .btn-md {
+		@include mix-buttons($btn2-text-color, $btn2-bg-color, $btn2-text-color-hover, $btn2-bg-color-hover);
+
+		color: $btn2-text-color !important;
+		background-color: $btn2-bg-color !important;
+		
+		&:hover {
+			color: $btn2-text-color-hover !important;
+			background-color: $btn2-bg-color-hover !important;
+		}
+
+		&.main-profile-submit {
+			@include mix-buttons($btn1-text-color, $btn1-bg-color, $btn1-text-color-hover, $btn1-bg-color-hover);
+
+			color: $btn1-text-color !important;
+			background-color: $btn1-bg-color !important;
+			
+			&:hover {
+				color: $btn1-text-color-hover !important;
+				background-color: $btn1-bg-color-hover !important;
+			}
+		}
+    }
+}

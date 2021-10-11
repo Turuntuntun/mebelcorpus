@@ -1,0 +1,10 @@
+$animations-easycart-default: showEasycart .3s !default;
+
+@keyframes showEasycart {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

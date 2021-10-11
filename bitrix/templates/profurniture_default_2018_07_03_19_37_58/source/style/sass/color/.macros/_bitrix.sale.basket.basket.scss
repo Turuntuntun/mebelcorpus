@@ -1,0 +1,17 @@
+.rsgopro {
+	.body {
+		.basket-coupon-block-total-price-old,
+		.basket-item-price-old-text {
+			&:after {
+				background-color: $color1;
+			}
+		}
+
+		.bx-basket .basket-item-property-scu-image .basket-item-scu-item:hover,
+		.bx-basket .basket-item-property-scu-image .basket-item-scu-item.selected,
+		.bx-basket .basket-item-property-scu-text .basket-item-scu-item:hover,
+		.bx-basket .basket-item-property-scu-text .basket-item-scu-item.selected {
+			border-color: $color1;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+.nav > li > a:hover,
+.nav > li > a:focus,
+.nav .nav-divider {
+  background-color: $color1-darken;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  border-color: $primary-border-color;
+}
+
+.navbar-default {
+  .navbar-nav > li > a {
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
+}

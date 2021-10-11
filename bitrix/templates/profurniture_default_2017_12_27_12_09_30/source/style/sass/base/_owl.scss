@@ -1,0 +1,13 @@
+.owl {
+    &-preview {
+        display: none;
+    }
+
+    &-dot {
+        .owl {
+            &-preview {
+                display: inline-block;
+            }
+        }
+    }
+}

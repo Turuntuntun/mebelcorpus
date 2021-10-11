@@ -1,0 +1,26 @@
+.c-important-props {
+    padding-left: 10px;
+
+    &__title {
+        color: #444;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 9px;
+    }
+
+    &__prop {
+        margin-bottom: 8px;
+
+        &:last-of-type {
+			margin-bottom: 0;
+		}
+    }
+
+    &__prop-name {
+        color: $gray-text-color;
+    }
+
+	&__prop-value {
+
+	}
+}

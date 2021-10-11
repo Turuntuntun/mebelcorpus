@@ -1,0 +1,22 @@
+.brand-detail-block {
+
+    @media (min-width: $screen-md-min){
+        display: flex;
+        
+        &__desc {
+            margin-right: 3.5rem;
+            flex-grow: 1;
+            flex-shrink: 1;
+            min-width: 25rem;
+            order: 1; 
+        }
+        
+        &__picture {
+            flex-grow: 0;
+            flex-shrink: 0;
+            max-width: 230px;
+            order: 2;
+        }
+    }
+
+}

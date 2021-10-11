@@ -1,0 +1,50 @@
+$selector-favorite: '.c-favorite' !default;
+
+#{$selector-favorite} {
+	&.in {
+        .svg-icon {
+            stroke: #cb0000;
+            fill: #cb0000;
+        }
+
+        #{$selector-favorite} {
+            &__title {
+                display: none;
+
+                &-in {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+
+        #{$selector-favorite} {
+            &__title,
+            &__title-in {
+                border-color: transparent;
+            }
+        }
+    }
+
+    &__title,
+    &__title-in {
+        margin-left: 5px;
+        border-bottom: 1px dashed $default-link-color;
+    }
+
+    &__title-in {
+        display: none;
+    }
+
+    .svg-icon {
+        position: relative;
+        bottom: 2px;
+        width: 16px;
+        height: 16px;
+        stroke: #91918f;
+        fill: #fff;
+    }
+}

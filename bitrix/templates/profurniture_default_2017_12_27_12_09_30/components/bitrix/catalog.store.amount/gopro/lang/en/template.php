@@ -1,0 +1,11 @@
+<?
+$MESS["S_PHONE"] = "Phone:";
+$MESS["S_SCHEDULE"] = "Business hours:";
+$MESS["S_AMOUNT"] = "in stock:";
+$MESS["GOPRO.STORES.QUANTITY.ISSET"] = "In stock#ICON#";
+$MESS["GOPRO.STORES.QUANTITY.LOW"] = "Limited#ICON#";
+$MESS["GOPRO.STORES.QUANTITY.EMPTY"] = "Out of stock#ICON#";
+
+$MESS["GOPRO.STORES.QUANTITY.ISSET.DETAIL"] = "In stock#ICON#mach";
+$MESS["GOPRO.STORES.QUANTITY.LOW.DETAIL"] = "In stock#ICON#low";
+$MESS["GOPRO.STORES.QUANTITY.EMPTY.DETAIL"] = "In stock#ICON#empty";

@@ -1,0 +1,71 @@
+$brandslistimg-max-element-height: 80px !default;
+$brandslistimg-element-padding: 10px !default;
+
+.brandslistimg.mainstyles {
+	margin-top:25px;
+}
+.brandslistimg.mainstyles .title {
+	margin-bottom:15px;
+	padding:0px 17px 15px 17px;
+	border-bottom:1px solid #F2F2F2;
+}
+.brandslistimg.mainstyles .title a {
+	font-size: 24px;
+	color: $color-title;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+
+.brandslistimg .item {
+	display: block;
+	width: 14%;
+	height: ($brandslistimg-max-element-height + $brandslistimg-element-padding + $brandslistimg-element-padding);
+	float: left;
+	padding: $brandslistimg-element-padding;
+	text-align: center;
+}
+.brandslistimg .item .pic {
+	display: table;
+	width: 100%;
+	height: $brandslistimg-max-element-height;
+	line-height: $brandslistimg-max-element-height;
+}
+.brandslistimg .item .pic .brandslistimg__block {
+	display: table-cell;
+	width: 100%;
+	height: $brandslistimg-max-element-height;
+	text-align: center;
+}
+.brandslistimg .item .pic img {
+	display: inline;
+	width: auto;
+	max-width: 100%;
+	max-height: $brandslistimg-max-element-height;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 1260px) and (min-width: 1025px) {
+	body.adaptive .brandslistimg .item {
+		width: 16%;
+	}
+}
+@media screen and (max-width: 1024px) and (min-width: 751px) {
+	body.adaptive .brandslistimg .item {
+		width: 20%;
+	}
+}
+@media screen and (max-width: 750px) and (min-width: 576px) {
+	body.adaptive .brandslistimg .item {
+		width: 25%;
+	}
+}
+@media screen and (max-width: 575px) and (min-width: 481px) {
+	body.adaptive .brandslistimg .item {
+		width: 33%;
+	}
+}
+@media screen and (max-width: 480px){
+	body.adaptive .brandslistimg .item {
+		width:50%;
+	}
+}

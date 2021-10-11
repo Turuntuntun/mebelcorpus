@@ -1,0 +1,32 @@
+/* catalog.element */
+.detail {
+    &__prices__title {
+        color: $primary-link-color;
+    }
+
+    &__previewtext__go-to__link {
+        color: $primary-link-color;
+
+        &:hover {
+            color: $primary-link-color-hover;
+        }
+    }
+}
+
+.body {
+    .scrollbar-inner {
+        > .scroll-element {
+            &.scroll-draggable {
+                .scroll-bar {
+                    background-color: $color1;
+                }
+            }
+
+            .scroll-bar {
+                &:hover {
+                    background-color: $color1;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+.ownd-stores
+{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.ownd-stores .ownd-stores-title
+{
+	font-weight: bold;
+}
+
+.ownd-stores table td
+{
+	padding: 2px 10px;
+}
+
+.ownd-stores table td:first-child
+{
+	padding-left: 0;
+}

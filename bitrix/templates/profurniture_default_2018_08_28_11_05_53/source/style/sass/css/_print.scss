@@ -1,0 +1,114 @@
+@media print {
+    html body {
+        padding-bottom: 0 !important;
+    }
+
+    #panel {
+        display: none;
+    }
+
+    .body,
+    .footer {
+        .centering {
+            width: 670px;
+            max-width: 670px;
+            min-width: 670px;
+        }
+
+        .b-over-header {
+            display: block !important;
+        }
+
+        .rsbreadcrumb {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .b-product-detail {
+            page-break-after: auto;
+
+            .c-prices-note__value {
+                padding: 0;
+            }
+        }
+
+        .b-print {
+            &__product-page {
+                &__pictures {
+                    width: 42%;
+
+                    .owl-stage {
+                        position: static !important;
+                        width: 100% !important;
+                        transform: none !important;
+
+                        .owl-item {
+                            display: none !important;
+
+                            &.active {
+                                display: block !important;
+                                width: 100% !important;
+                            }
+                        }
+                    }
+                }
+
+                &__info {
+                    width: 58%;
+                }
+            }
+
+            &__tab-name {
+                margin-bottom: 7px;
+            }
+        }
+
+        .tab-content > .tab-pane {
+            display: none !important;
+        }
+
+        .tab-content > .tab-pane.tabpanel-show-on-print {
+            display: block !important;
+            visibility: visible;
+        }
+
+        .p-delivery > div {
+            width: 100%;
+        }
+
+        .line1 .block.one {
+            width: 100% !important;
+            text-align: center;
+        }
+    }
+
+    .header_type1 {
+        .header {
+            .logo {
+                width: 50%;
+                text-align: left;
+            }
+
+            .phone {
+                width: 50%;
+                text-align: right;
+
+                a {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .header_type2 {
+        .header__flex > div {
+            width: 100%;
+            text-align: center;
+        }
+
+        .tpanel__block.schedule {
+            display: block !important;
+        }
+    }
+
+}
