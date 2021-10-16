@@ -7,8 +7,8 @@
     <title><? $APPLICATION->ShowTitle(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="assets/images/fav.png">
+    <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/fav.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/fav.png">
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/assets/styles/swiper-bundle.min.css");?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/assets/styles/accordion.min.css");?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/assets/styles/app.min.css");?>
@@ -32,7 +32,7 @@
                 <div class="container header-wrap">
                     <button class="header__location-btn">
                         <svg width="15" height="15">
-                            <use xlink:href="assets/images/sprite.svg#icon-gps-device"></use>
+                            <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icon-gps-device"></use>
                         </svg><span>Санкт-Петербург</span>
                     </button>
                     <ul class="header__list">
@@ -49,22 +49,25 @@
                         <div class="header__note">Прием заказов на сайте<span>круглосуточно</span></div>
                     </div><a class="header__tel" href="tel:+78123093154">
                         <svg width="18" height="18">
-                            <use xlink:href="assets/images/sprite.svg#telephone"></use>
+                            <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#telephone"></use>
                         </svg><span>+7 (812) 309-31-54</span></a>
                 </div>
             </div>
             <div class="header__container container">
-                <div class="header__primary header-wrap"><a class="header__logo" href="#"><img src="assets/images/logo.png" alt=""></a>
+                <div class="header__primary header-wrap">
+                    <a class="header__logo" href="/">
+                        <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo.png" alt="">
+                    </a>
                     <button class="header__toggle-menu button" data-catalog-toggle>
                         <svg width="14" height="14">
-                            <use xlink:href="assets/images/sprite.svg#hamburger-button"></use>
+                            <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#hamburger-button"></use>
                         </svg><span>Каталог</span>
                     </button>
                     <!-- форма поиска-->
                     <form class="header__search search-form" method="get" action="#">
                         <button class="search-form__btn" type="submit">
                             <svg width="20" height="20">
-                                <use xlink:href="assets/images/sprite.svg#icons-search"></use>
+                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icons-search"></use>
                             </svg>
                         </button>
                         <label>
@@ -74,10 +77,10 @@
                     <!-- форма поиска конец-->
                     <div class="header__user-menu"><a class="header__account" href="#">
                             <svg width="25" height="25">
-                                <use xlink:href="assets/images/sprite.svg#user-outlined"></use>
+                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#user-outlined"></use>
                             </svg><span>Личный кабинет</span></a><a class="header__cart" href="#">
                             <svg width="27" height="27">
-                                <use xlink:href="assets/images/sprite.svg#cart"></use>
+                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#cart"></use>
                             </svg><sup>3</sup><span>Корзина</span></a>
                         <button class="header__burger-btn" data-burger aria-label="Раскрыть меню"><span></span></button>
                     </div>
@@ -85,11 +88,11 @@
                 <div class="header__mobile">
                     <div class="header__btns"><a class="header__toggle-menu button" href="#">
                             <svg width="14" height="14">
-                                <use xlink:href="assets/images/sprite.svg#hamburger-button"></use>
+                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#hamburger-button"></use>
                             </svg><span>Каталог</span></a>
                         <button class="header__location-btn">
                             <svg width="15" height="15">
-                                <use xlink:href="assets/images/sprite.svg#icon-gps-device"></use>
+                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icon-gps-device"></use>
                             </svg><span>Санкт-Петербург</span>
                         </button>
                     </div>
@@ -111,7 +114,7 @@
                 </ul>
                 <div class="header__mobile"><a class="header__tel" href="tel:+78123093154">
                         <svg width="18" height="18">
-                            <use xlink:href="assets/images/sprite.svg#telephone"></use>
+                            <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#telephone"></use>
                         </svg><span>+7 (812) 309-31-54</span></a>
                     <div class="header__info">
                         <div class="header__graphic">
@@ -124,10 +127,13 @@
             </div>
             <div class="header__full-menu full-menu" data-full-menu>
                 <div class="container">
-                    <div class="full-menu__head"><a class="header__logo" href="#"><img src="assets/images/logo.png" alt=""></a>
+                    <div class="full-menu__head">
+                        <a class="header__logo" href="/">
+                            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo.png" alt="">
+                        </a>
                         <button class="full-menu__close-btn button-close" type="button" aria-label="Закрыть" data-close>
                             <svg width="20" height="20">
-                                <use xlink:href="assets/images/sprite.svg#close"></use>
+                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>
                             </svg>
                         </button>
                     </div>
@@ -136,7 +142,7 @@
                         <form class="header__search search-form" method="get" action="#">
                             <button class="search-form__btn" type="submit">
                                 <svg width="20" height="20">
-                                    <use xlink:href="assets/images/sprite.svg#icons-search"></use>
+                                    <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icons-search"></use>
                                 </svg>
                             </button>
                             <label>
