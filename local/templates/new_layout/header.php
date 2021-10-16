@@ -55,9 +55,11 @@
             </div>
             <div class="header__container container">
                 <div class="header__primary header-wrap">
-                    <a class="header__logo" href="/">
-                        <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo.png" alt="">
-                    </a>
+                    <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => SITE_TEMPLATE_PATH.'/include/logo_header.php'
+                        )
+                    );?>
                     <button class="header__toggle-menu button" data-catalog-toggle>
                         <svg width="14" height="14">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#hamburger-button"></use>
@@ -128,9 +130,11 @@
             <div class="header__full-menu full-menu" data-full-menu>
                 <div class="container">
                     <div class="full-menu__head">
-                        <a class="header__logo" href="/">
-                            <img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo.png" alt="">
-                        </a>
+                        <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH" => SITE_TEMPLATE_PATH.'/include/logo_header.php'
+                            )
+                        );?>
                         <button class="full-menu__close-btn button-close" type="button" aria-label="Закрыть" data-close>
                             <svg width="20" height="20">
                                 <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>

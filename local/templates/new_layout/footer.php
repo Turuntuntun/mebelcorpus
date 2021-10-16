@@ -1,7 +1,12 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
 <footer class="footer">
     <div class="container">
-        <div class="footer__grid"><a class="footer__logo" href="#"><img src="<?=SITE_TEMPLATE_PATH?>/assets/images/logo.png" alt="Логотип ТД Андрей"></a>
+        <div class="footer__grid">
+            <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_TEMPLATE_PATH.'/include/logo_footer.php'
+                )
+            );?>
             <div class="footer__contacts"><a class="footer__tel" href="tel:+78123093154">+7 (812) 309-31-54</a><a class="footer__tel" href="tel:+79602835951">+7 (960) 283-59-51</a></div>
             <button class="footer__btn button button--ghost" type="button">Заказать звонок</button>
         </div>
