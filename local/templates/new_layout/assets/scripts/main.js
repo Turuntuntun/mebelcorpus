@@ -31,7 +31,7 @@ if (tabIdList) {
 			controlList: document.querySelectorAll(`[data-tab-id="${tabGroup}"][data-tab-control]`),
 			blockList: document.querySelectorAll(`[data-tab-id="${tabGroup}"][data-tab-block]`),
 		};
-		console.log(tab);
+		// console.log(tab);
 		tabSwith(tab.controlList[0].dataset.tabControl, tab, tabGroup);
 
 		for (const control of tab.controlList) {
@@ -179,6 +179,7 @@ window.onclick = (event) => {
 
 			modals.forEach((modal) => {
 				const modalId = modal.id
+				modal.classList.remove('active')
 
 				if (triggerData === modalId) {
 					modal.classList.add('active')
@@ -190,7 +191,7 @@ window.onclick = (event) => {
 				}
 			})
 		}
-	})
+	})	
 }
 
 function openedWindow(elem) {
@@ -202,6 +203,7 @@ function openedWindow(elem) {
 
 function closeWindow(elem) {
 	const closeModal = elem.querySelector('[data-close]')
+	const cancelBtn = elem.querySelector('[data-cancel-btn]')
 
 	closeModal.addEventListener('click', function() {
 		elem.classList.remove('active')
@@ -214,7 +216,35 @@ function closeWindow(elem) {
 		overlayForClose.classList.remove('active')
 		body.removeAttribute('style')
 	})
+
+	if (cancelBtn) {
+		cancelBtn.addEventListener('click', function() {
+			elem.classList.remove('active')
+			overlayForClose.classList.remove('active');
+			body.removeAttribute('style')
+		})
+	}
 }
+
+//popup
+function popup() {
+	const selectCity = document.querySelector('#select-city');
+	const selectCityBtns = document.querySelectorAll('[data-modal-trigger="select-city"]');
+	
+	openedWindow(selectCity)
+	closeWindow(selectCity)
+	
+	
+	selectCityBtns.forEach((item) => {
+		item.addEventListener('click', function() {
+			selectCity.classList.add('active')
+			openedWindow(selectCity)
+			closeWindow(selectCity)
+		})
+	})
+}
+
+popup()
 
 
 // accordion
@@ -225,11 +255,11 @@ if (document.querySelectorAll('.accordion').length) {
 	accordions.forEach((accordion) => {
 		new Accordion(accordion);
 
-		newBtn.forEach((item) => {
-			item.addEventListener('click', function() {
-				accordion.open()
-			})
-		})
+		// newBtn.forEach((item) => {
+		// 	item.addEventListener('click', function() {
+		// 		accordion.open()
+		// 	})
+		// })
 	})
 }
 
