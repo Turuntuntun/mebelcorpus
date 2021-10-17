@@ -35,12 +35,23 @@
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icon-gps-device"></use>
                         </svg><span>Санкт-Петербург</span>
                     </button>
-                    <ul class="header__list">
-                        <li class="header__item"><a class="header__link" href="#">Как купить </a></li>
-                        <li class="header__item"><a class="header__link" href="#">Гарантии</a></li>
-                        <li class="header__item"><a class="header__link" href="#">Скидки и акции</a></li>
-                        <li class="header__item"><a class="header__link" href="#">Контакты</a></li>
-                    </ul>
+                    <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(
+                        "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                        "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+                        "DELAY" => "N",	// Откладывать выполнение шаблона меню
+                        "MAX_LEVEL" => "1",	// Уровень вложенности меню
+                        "MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+                            0 => "",
+                        ),
+                        "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                        "MENU_CACHE_TYPE" => "A",	// Тип кеширования
+                        "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                        "MENU_THEME" => "site",
+                        "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+                        "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+                    ),
+                        false
+                    );?>
                     <div class="header__info">
                         <div class="header__graphic">
                             <div class="header__time"><span>Пн-Пт:</span> 09:00 – 18:00</div>
@@ -103,16 +114,25 @@
                         <li class="header__item"><a class="header__link" href="#">Контакты</a></li>
                     </ul>
                 </div>
-                <ul class="header__menu header-menu">
-                    <li class="header-menu__item"><a class="header-menu__link" href="#">О компании</a></li>
-                    <li class="header-menu__item"><a class="header-menu__link" href="#">Услуги</a></li>
-                    <li class="header-menu__item"><a class="header-menu__link" href="#">Новости</a></li>
-                    <li class="header-menu__item"><a class="header-menu__link" href="#">Новинки</a></li>
-                    <li class="header-menu__item"><a class="header-menu__link" href="#">Документы</a></li>
-                    <li class="header-menu__item"><a class="header-menu__link" href="">Пресс-кит</a></li>
-                    <li class="header-menu__item"><a class="header-menu__link" href="#">Снято с производства</a></li>
-                </ul>
-                <div class="header__mobile"><a class="header__tel" href="tel:+78123093154">
+                <?$APPLICATION->IncludeComponent("bitrix:menu", "main_menu", Array(
+                    "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                    "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+                    "DELAY" => "N",	// Откладывать выполнение шаблона меню
+                    "MAX_LEVEL" => "1",	// Уровень вложенности меню
+                    "MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+                        0 => "",
+                    ),
+                    "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                    "MENU_CACHE_TYPE" => "A",	// Тип кеширования
+                    "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                    "MENU_THEME" => "site",
+                    "ROOT_MENU_TYPE" => "main",	// Тип меню для первого уровня
+                    "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+                ),
+                    false
+                );?>
+                <div class="header__mobile">
+                    <a class="header__tel" href="tel:+78123093154">
                         <svg width="18" height="18">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#telephone"></use>
                         </svg><span>+7 (812) 309-31-54</span></a>
