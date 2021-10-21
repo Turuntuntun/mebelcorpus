@@ -30,7 +30,7 @@
         <nav class="header__nav">
             <div class="header__top">
                 <div class="container header-wrap">
-                    <button class="header__location-btn">
+                    <button class="header__location-btn" data-modal-trigger="select-city">
                         <svg width="15" height="15">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icon-gps-device"></use>
                         </svg><span>Санкт-Петербург</span>

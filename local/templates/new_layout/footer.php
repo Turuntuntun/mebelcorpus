@@ -9,7 +9,7 @@
                 )
             );?>
             <div class="footer__contacts"><a class="footer__tel" href="tel:+78123093154">+7 (812) 309-31-54</a><a class="footer__tel" href="tel:+79602835951">+7 (960) 283-59-51</a></div>
-            <button class="footer__btn button button--ghost" type="button">Заказать звонок</button>
+            <button class="footer__btn button button--ghost" type="button" data-modal-trigger="callback">Заказать звонок</button>
         </div>
         <div class="footer__column"><span class="footer__caption">Каталог товаров</span>
             <ul class="footer__list">
@@ -102,6 +102,148 @@
         <div class="footer__bot"><a class="footer__link" href="#">Пользовательское соглашение</a><a class="footer__link" href="#">Политика конфиденциальности</a></div>
     </div>
 </footer>
+<!-- Выезжающее модальное окно-->
+<div class="modal modal--account" id="login">
+    <div class="modal__container">
+        <h2 class="modal__title title-second">Войти в личный кабинет</h2>
+        <p class="modal__warning">Неверный логин или пароль</p>
+        <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
+            <svg width="24" height="24">
+                <use xlink:href="assets/images/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <form class="modal__form form" action="#" method="post">
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="email" name="email" placeholder="Email">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="password" name="password" placeholder="Пароль">
+                </label>
+            </div>
+            <button class="form__submit-btn button" type="submit">Войти</button>
+        </form>
+        <p class="modal__bot-text">Нет аккаунта? <a href="#" data-modal-trigger="registration">Зарегистрироваться</a></p>
+    </div>
 </div>
+<!-- Выезжающее модальное окно-->
+<div class="modal modal--account" id="registration">
+    <div class="modal__container">
+        <h2 class="modal__title title-second">Зарегистрироваться</h2>
+        <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
+            <svg width="24" height="24">
+                <use xlink:href="assets/images/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <div class="toggle-form mb-60">
+            <button class="toggle-form__btn" data-tab-id="toggle-reg" data-tab-control="fiz">Физическое лицо</button>
+            <button class="toggle-form__btn" data-tab-id="toggle-reg" data-tab-control="ur">Юридическое лицо</button>
+        </div>
+        <form class="modal__form form" action="#" method="post" data-tab-id="toggle-reg" data-tab-block="fiz">
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="email" name="email" placeholder="Email">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="password" name="password" placeholder="Пароль">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="password" name="password" placeholder="Повторите пароль">
+                </label>
+            </div>
+            <button class="form__submit-btn button" type="submit">Регистрация</button>
+        </form>
+        <form class="modal__form form" action="#" method="post" data-tab-id="toggle-reg" data-tab-block="ur">
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="text" name="name" placeholder="ИНН организации">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="text" name="name" placeholder="Название организации">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="text" name="name" placeholder="Фамилия и имя">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="tel" name="tel" placeholder="Телефон">
+                </label>
+            </div>
+            <div class="form__item">
+                <label class="form__label">
+                    <input class="form__input" type="email" name="email" placeholder="E-mail">
+                </label>
+            </div>
+            <button class="form__submit-btn button" type="submit">Подать заявку</button>
+        </form>
+        <p class="modal__bot-text">Уже зарегистрированы? <a href="#" data-modal-trigger="login">Войти</a></p>
+    </div>
+</div>
+<!-- Выезжающее модальное окно-->
+<div class="modal modal--callback" id="callback">
+    <div class="modal__container">
+        <h2 class="modal__title title-second">Заказать звонок</h2>
+        <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
+            <svg width="24" height="24">
+                <use xlink:href="assets/images/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <form class="modal__form form" action="#" method="post">
+            <div class="form__item">
+                <label class="form__label" for="form-name">Фамилия, имя, отчество</label>
+                <input class="form__input" id="form-name" type="text" name="name">
+            </div>
+            <div class="form__item">
+                <label class="form__label" for="form-tel">Телефон</label>
+                <input class="form__input" id="form-tel" type="tel" name="tel">
+            </div>
+            <div class="form__item">
+                <label class="form__label" for="form-comment">Сообщение</label>
+                <input class="form__input" id="form-comment" type="comment" name="comment">
+            </div>
+            <button class="form__submit-btn button" type="submit">Отправить</button>
+        </form>
+        <p class="modal__bot-text">Нажимая кнопку отправить вы соглашаетесь  на обработку персональных данных, а также с <a href="#">Пользовательским соглашением</a></p>
+    </div>
+</div>
+<!-- Попап окно; добавляем класс active чтобы окно открывалось по умолчанию-->
+<div class="popup" id="select-city">
+    <div class="popup__container">
+        <h2 class="popup__title">Выберите город</h2>
+        <button class="popup__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
+            <svg width="24" height="24">
+                <use xlink:href="assets/images/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <form class="search-form" method="get" action="#">
+            <label>
+                <input class="search-form__input" type="search" placeholder="Введите название города">
+            </label>
+            <button class="search-form__btn" type="button">
+                <svg width="20" height="20">
+                    <use xlink:href="assets/images/sprite.svg#icons-search"></use>
+                </svg>
+            </button>
+        </form>
+        <ul class="popup__list city-list">
+            <li class="city-list__item"><a class="city-list__link active" href="#">Санкт-Петербург</a></li>
+            <li class="city-list__item"><a class="city-list__link" href="#">Москва</a></li>
+            <li class="city-list__item"><a class="city-list__link" href="#">Краснодар</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+<div class="overlay" aria-label="Закрыть окно"></div>
 </body>
 </html>
