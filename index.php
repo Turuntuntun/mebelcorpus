@@ -141,9 +141,9 @@ $APPLICATION->SetTitle("");
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?><?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"new_on_main", 
-	array(
+	"bitrix:catalog.section",
+	"new_on_main",
+	Array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
 		"ADD_PROPERTIES_TO_BASKET" => "Y",
@@ -162,6 +162,7 @@ $APPLICATION->SetTitle("");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COMPATIBLE_MODE" => "Y",
+		"COMPONENT_TEMPLATE" => "new_on_main",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
 		"DETAIL_URL" => "",
@@ -180,8 +181,7 @@ $APPLICATION->SetTitle("");
 		"IBLOCK_ID" => "29",
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
-		"LABEL_PROP" => array(
-		),
+		"LABEL_PROP" => array(),
 		"LAZY_LOAD" => "N",
 		"LINE_ELEMENT_COUNT" => "3",
 		"LOAD_ON_SCROLL" => "N",
@@ -191,12 +191,10 @@ $APPLICATION->SetTitle("");
 		"MESS_BTN_DETAIL" => "Подробнее",
 		"MESS_BTN_SUBSCRIBE" => "Подписаться",
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
+		"MESS_SHOW_MAX_QUANTITY" => "Остаток на складе",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"OFFERS_FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
+		"OFFERS_FIELD_CODE" => array(0=>"",1=>"",),
 		"OFFERS_LIMIT" => "5",
 		"OFFERS_SORT_FIELD" => "sort",
 		"OFFERS_SORT_FIELD2" => "id",
@@ -211,9 +209,7 @@ $APPLICATION->SetTitle("");
 		"PAGER_TITLE" => "Товары",
 		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"PRICE_CODE" => array(
-			0 => "BASE",
-		),
+		"PRICE_CODE" => array(0=>"BASE",),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
 		"PRODUCT_DISPLAY_MODE" => "N",
@@ -222,8 +218,7 @@ $APPLICATION->SetTitle("");
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 		"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
 		"PRODUCT_SUBSCRIPTION" => "Y",
-		"PROPERTY_CODE_MOBILE" => array(
-		),
+		"PROPERTY_CODE_MOBILE" => array(),
 		"RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
 		"RCM_TYPE" => "personal",
 		"SECTION_CODE" => "",
@@ -231,10 +226,7 @@ $APPLICATION->SetTitle("");
 		"SECTION_ID" => "",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_URL" => "",
-		"SECTION_USER_FIELDS" => array(
-			0 => "",
-			1 => "",
-		),
+		"SECTION_USER_FIELDS" => array(0=>"",1=>"",),
 		"SEF_MODE" => "Y",
 		"SEF_RULE" => "",
 		"SET_BROWSER_TITLE" => "Y",
@@ -258,11 +250,8 @@ $APPLICATION->SetTitle("");
 		"USE_ENHANCED_ECOMMERCE" => "N",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",
-		"USE_PRODUCT_QUANTITY" => "N",
-		"COMPONENT_TEMPLATE" => "new_on_main",
-		"MESS_SHOW_MAX_QUANTITY" => "Остаток на складе"
-	),
-	false
+		"USE_PRODUCT_QUANTITY" => "N"
+	)
 );?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"news_on_main",
@@ -319,4 +308,66 @@ $APPLICATION->SetTitle("");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+<section class="about-block mb-90">
+	<div class="container">
+		<?$APPLICATION->IncludeComponent("bitrix:news.detail", "on_footer_text", Array(
+	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
+		"ADD_ELEMENT_CHAIN" => "N",	// Включать название элемента в цепочку навигации
+		"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+		"AJAX_MODE" => "N",	// Включить режим AJAX
+		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор
+		"AJAX_OPTION_HISTORY" => "N",	// Включить эмуляцию навигации браузера
+		"AJAX_OPTION_JUMP" => "N",	// Включить прокрутку к началу компонента
+		"AJAX_OPTION_STYLE" => "N",	// Включить подгрузку стилей
+		"BROWSER_TITLE" => "-",	// Установить заголовок окна браузера из свойства
+		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHECK_DATES" => "Y",	// Показывать только активные на данный момент элементы
+		"DETAIL_URL" => "",	// URL страницы детального просмотра (по умолчанию - из настроек инфоблока)
+		"DISPLAY_BOTTOM_PAGER" => "N",	// Выводить под списком
+		"DISPLAY_DATE" => "N",	// Выводить дату элемента
+		"DISPLAY_NAME" => "N",	// Выводить название элемента
+		"DISPLAY_PICTURE" => "N",	// Выводить детальное изображение
+		"DISPLAY_PREVIEW_TEXT" => "Y",	// Выводить текст анонса
+		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
+		"ELEMENT_CODE" => "on_footer",	// Код новости
+		"ELEMENT_ID" => "",	// ID новости
+		"FIELD_CODE" => array(	// Поля
+			0 => "",
+			1 => "",
+		),
+		"IBLOCK_ID" => "40",	// Код информационного блока
+		"IBLOCK_TYPE" => "presscenter",	// Тип информационного блока (используется только для проверки)
+		"IBLOCK_URL" => "",	// URL страницы просмотра списка элементов (по умолчанию - из настроек инфоблока)
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",	// Включать инфоблок в цепочку навигации
+		"MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
+		"META_DESCRIPTION" => "-",	// Установить описание страницы из свойства
+		"META_KEYWORDS" => "-",	// Установить ключевые слова страницы из свойства
+		"PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
+		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
+		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
+		"PAGER_TITLE" => "Страница",	// Название категорий
+		"PROPERTY_CODE" => array(	// Свойства
+			0 => "",
+			1 => "",
+		),
+		"SET_BROWSER_TITLE" => "N",	// Устанавливать заголовок окна браузера
+		"SET_CANONICAL_URL" => "N",	// Устанавливать канонический URL
+		"SET_LAST_MODIFIED" => "N",	// Устанавливать в заголовках ответа время модификации страницы
+		"SET_META_DESCRIPTION" => "N",	// Устанавливать описание страницы
+		"SET_META_KEYWORDS" => "N",	// Устанавливать ключевые слова страницы
+		"SET_STATUS_404" => "N",	// Устанавливать статус 404
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
+		"SHOW_404" => "N",	// Показ специальной страницы
+		"STRICT_SECTION_CHECK" => "N",	// Строгая проверка раздела для показа элемента
+		"USE_PERMISSIONS" => "N",	// Использовать дополнительное ограничение доступа
+		"USE_SHARE" => "N",	// Отображать панель соц. закладок
+	),
+	false
+);?>
+		<button class="about-block__btn" data-more-text="">Развернуть</button>
+	</div>
+</section>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
