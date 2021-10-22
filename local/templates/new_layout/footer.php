@@ -11,28 +11,55 @@
             <div class="footer__contacts"><a class="footer__tel" href="tel:+78123093154">+7 (812) 309-31-54</a><a class="footer__tel" href="tel:+79602835951">+7 (960) 283-59-51</a></div>
             <button class="footer__btn button button--ghost" type="button" data-modal-trigger="callback">Заказать звонок</button>
         </div>
-        <div class="footer__column"><span class="footer__caption">Каталог товаров</span>
-            <ul class="footer__list">
-                <li class="footer__item"><a class="footer__link" href="#">Мебель для спальни</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Прихожие</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Мебель для гостинной</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Мебель для кухни</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Шкафы</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Мягкая мебель</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Детская мебель</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Кухни на заказ</a></li>
-            </ul>
+        <div class="footer__column">
+            <span class="footer__caption">
+                <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => SITE_TEMPLATE_PATH.'/include/title_bot_menu_1.php'
+                    )
+                );?>
+            </span>
+            <?$APPLICATION->IncludeComponent("bitrix:menu", "bot_menu", Array(
+                "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+                "DELAY" => "N",	// Откладывать выполнение шаблона меню
+                "MAX_LEVEL" => "1",	// Уровень вложенности меню
+                "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+                "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                "MENU_CACHE_TYPE" => "A",	// Тип кеширования
+                "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                "MENU_THEME" => "site",
+                "ROOT_MENU_TYPE" => "bot_catalog",	// Тип меню для первого уровня
+                "USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+                "COMPONENT_TEMPLATE" => "top_menu"
+            ),
+                false
+            );?>
         </div>
-        <div class="footer__column"><span class="footer__caption">Информация</span>
-            <ul class="footer__list">
-                <li class="footer__item"><a class="footer__link" href="#">О компании</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Услуги</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Новости</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Новинки</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Документы</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Пресс-кит</a></li>
-                <li class="footer__item"><a class="footer__link" href="#">Снято с производства</a></li>
-            </ul>
+        <div class="footer__column">
+            <span class="footer__caption">
+                <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                        "AREA_FILE_SHOW" => "file",
+                        "PATH" => SITE_TEMPLATE_PATH.'/include/title_bot_menu_2.php'
+                    )
+                );?>
+            </span>
+                <?$APPLICATION->IncludeComponent("bitrix:menu", "bot_menu", Array(
+        "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+            "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+            "DELAY" => "N",	// Откладывать выполнение шаблона меню
+            "MAX_LEVEL" => "1",	// Уровень вложенности меню
+            "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+            "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+            "MENU_CACHE_TYPE" => "A",	// Тип кеширования
+            "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+            "MENU_THEME" => "site",
+            "ROOT_MENU_TYPE" => "bot",	// Тип меню для первого уровня
+            "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+            "COMPONENT_TEMPLATE" => "top_menu"
+        ),
+        false
+    );?>
         </div>
         <div class="footer__info">
             <div class="footer__wrap"><span class="footer__caption">Мы в социальных сетях</span>
