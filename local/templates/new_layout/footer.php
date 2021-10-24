@@ -218,32 +218,24 @@
     </div>
 </div>
 <!-- Выезжающее модальное окно-->
-<div class="modal modal--callback" id="callback">
-    <div class="modal__container">
-        <h2 class="modal__title title-second">Заказать звонок</h2>
-        <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
-            <svg width="24" height="24">
-                <use xlink:href="assets/images/sprite.svg#close"></use>
-            </svg>
-        </button>
-        <form class="modal__form form" action="#" method="post">
-            <div class="form__item">
-                <label class="form__label" for="form-name">Фамилия, имя, отчество</label>
-                <input class="form__input" id="form-name" type="text" name="name">
-            </div>
-            <div class="form__item">
-                <label class="form__label" for="form-tel">Телефон</label>
-                <input class="form__input" id="form-tel" type="tel" name="tel">
-            </div>
-            <div class="form__item">
-                <label class="form__label" for="form-comment">Сообщение</label>
-                <input class="form__input" id="form-comment" type="comment" name="comment">
-            </div>
-            <button class="form__submit-btn button" type="submit">Отправить</button>
-        </form>
-        <p class="modal__bot-text">Нажимая кнопку отправить вы соглашаетесь  на обработку персональных данных, а также с <a href="#">Пользовательским соглашением</a></p>
-    </div>
-</div>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:main.feedback.custom",
+    "popup_callback",
+    array(
+        "EVENT_MESSAGE_ID" => array(
+            234
+        ),
+        "OK_TEXT" => "Спасибо, ваше сообщение принято.",
+        "REQUIRED_FIELDS" => array(
+            0 => "NAME",
+            1 => "PHONE",
+        ),
+        "USE_CAPTCHA" => "Y",
+        "COMPONENT_TEMPLATE" => "popup_callback",
+        "TITLE" => "Заказ звонка"
+    ),
+    false
+);?>
 <!-- Попап окно; добавляем класс active чтобы окно открывалось по умолчанию-->
 <div class="popup" id="select-city">
     <div class="popup__container">
