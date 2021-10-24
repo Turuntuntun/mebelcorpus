@@ -14,11 +14,6 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 <div class="modal modal--callback" id="callback">
     <div class="modal__container success" hidden>
         <h2 class="modal__title title-second"><?=$arParams['OK_TEXT']?></h2>
-        <button class="modal__close-btn button-close" type="button"  data-close="">
-            <svg width="24" height="24">
-                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>
-            </svg>
-        </button>
     </div>
     <div class="modal__container default">
         <h2 class="modal__title title-second"><?=$arParams['TITLE']?></h2>
