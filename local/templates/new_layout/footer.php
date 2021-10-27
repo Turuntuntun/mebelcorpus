@@ -62,7 +62,12 @@
     );?>
         </div>
         <div class="footer__info">
-            <div class="footer__wrap"><span class="footer__caption">Мы в социальных сетях</span>
+            <div class="footer__wrap"><span class="footer__caption"><?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => SITE_TEMPLATE_PATH.'/include/text_social.php'
+                        )
+                    );?>
+                </span>
                 <ul class="footer__social social-list">
                     <li class="social-list__item"><a class="social-list__link" href="#" aria-label="facebook">
                             <svg width="16" height="30">
