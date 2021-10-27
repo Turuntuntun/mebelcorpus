@@ -16,7 +16,7 @@ $this->setFrameMode(true);
     <div class="container">
         <div class="main-news__header title-wb mb-60">
             <h2 class="main-news__title title-second"><?=GetMessage('CT_BNL_TITLE_NEWS')?></h2>
-            <a class="main-news__more title-wb__link" href="/news/"><?=GetMessage('CT_BNL_LINK_NEWS')?></a>
+            <a class="main-news__more title-wb__link" href="/content/news/"><?=GetMessage('CT_BNL_LINK_NEWS')?></a>
         </div>
         <ul class="main-news__list news-cards">
 <?foreach($arResult["ITEMS"] as $arItem):?>

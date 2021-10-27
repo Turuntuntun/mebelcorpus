@@ -25,7 +25,7 @@ $APPLICATION->SetTitle("Новости");
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => array("",""),
+		"DETAIL_PROPERTY_CODE" => array("UF_TEXT_BOT","UF_TEXT_TOP","UF_IMAGES"),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
