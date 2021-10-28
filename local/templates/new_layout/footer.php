@@ -83,7 +83,11 @@
                             </svg></a></li>
                 </ul>
             </div>
-            <div class="footer__wrap"><span class="footer__caption">Мы принимаем оплату</span>
+            <div class="footer__wrap"><span class="footer__caption"><?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                            "AREA_FILE_SHOW" => "file",
+                            "PATH" => SITE_TEMPLATE_PATH.'/include/text_oplata.php'
+                        )
+                    );?></span>
                 <ul class="footer__pays pay-list">
                     <li class="pay-list__item">
                         <svg class="pay-list__logo" width="56" height="17">
