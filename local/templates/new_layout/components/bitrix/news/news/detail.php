@@ -69,62 +69,61 @@ $this->setFrameMode(true);
 	$component
 );?>
 
-<?if($arParams["USE_CATEGORIES"]=="Y" && $ElementID):
-	global $arCategoryFilter;
-	$obCache = new CPHPCache;
-	$strCacheID = $componentPath.LANG.$arParams["IBLOCK_ID"].$ElementID.$arParams["CATEGORY_CODE"];
-	if(($tzOffset = CTimeZone::GetOffset()) <> 0)
-		$strCacheID .= "_".$tzOffset;
-	if($arParams["CACHE_TYPE"] == "N" || $arParams["CACHE_TYPE"] == "A" && COption::GetOptionString("main", "component_cache_on", "Y") == "N")
-		$CACHE_TIME = 0;
-	else
-		$CACHE_TIME = $arParams["CACHE_TIME"];
-	if($obCache->StartDataCache($CACHE_TIME, $strCacheID, $componentPath))
-	{
-		$rsProperties = CIBlockElement::GetProperty($arParams["IBLOCK_ID"], $ElementID, "sort", "asc", array("ACTIVE"=>"Y","CODE"=>$arParams["CATEGORY_CODE"]));
-		$arCategoryFilter = array();
-		while($arProperty = $rsProperties->Fetch())
-		{
-			if(is_array($arProperty["VALUE"]) && count($arProperty["VALUE"])>0)
-			{
-				foreach($arProperty["VALUE"] as $value)
-					$arCategoryFilter[$value]=true;
-			}
-			elseif(!is_array($arProperty["VALUE"]) && $arProperty["VALUE"] <> '')
-				$arCategoryFilter[$arProperty["VALUE"]]=true;
-		}
-		$obCache->EndDataCache($arCategoryFilter);
-	}
-	else
-	{
-		$arCategoryFilter = $obCache->GetVars();
-	}
-	if(count($arCategoryFilter)>0):
-		$arCategoryFilter = array(
-			"PROPERTY_".$arParams["CATEGORY_CODE"] => array_keys($arCategoryFilter),
-			"!"."ID" => $ElementID,
-		);
-		?>
-		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
-		<?foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
-			<?$APPLICATION->IncludeComponent(
-				"bitrix:news.list",
-				$arParams["CATEGORY_THEME_".$iblock_id],
-				Array(
-					"IBLOCK_ID" => $iblock_id,
-					"NEWS_COUNT" => $arParams["CATEGORY_ITEMS_COUNT"],
-					"SET_TITLE" => "N",
-					"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-					"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-					"CACHE_TIME" => $arParams["CACHE_TIME"],
-					"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-					"FILTER_NAME" => "arCategoryFilter",
-					"CACHE_FILTER" => "Y",
-					"DISPLAY_TOP_PAGER" => "N",
-					"DISPLAY_BOTTOM_PAGER" => "N",
-				),
-				$component
-			);?>
-		<?endforeach?>
-	<?endif?>
-<?endif?>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "news-on-page-detail-news",
+    Array(
+        "ACTIVE_DATE_FORMAT" => $arParams['ACTIVE_DATE_FORMAT'],
+        "ADD_SECTIONS_CHAIN" => $arParams['ADD_SECTIONS_CHAIN'],
+        "AJAX_MODE" => $arParams['AJAX_MODE'],
+        "AJAX_OPTION_ADDITIONAL" => $arParams['AJAX_OPTION_ADDITIONAL'],
+        "AJAX_OPTION_HISTORY" => $arParams["AJAX_OPTION_HISTORY"],
+        "AJAX_OPTION_JUMP" => $arParams["AJAX_OPTION_JUMP"],
+        "AJAX_OPTION_STYLE" => $arParams["AJAX_OPTION_STYLE"],
+        "CACHE_FILTER" => $arParams["CACHE_FILTER"],
+        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+        "CACHE_TIME" => $arParams["CACHE_TIME"],
+        "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+        "CHECK_DATES" => $arParams["CHECK_DATES"],
+        "DETAIL_URL" => '',
+        "DISPLAY_BOTTOM_PAGER" => $arParams["DETAIL_DISPLAY_BOTTOM_PAGER"],
+        "DISPLAY_DATE" => $arParams["DISPLAY_DATE"],
+        "DISPLAY_NAME" => $arParams["DISPLAY_NAME"],
+        "DISPLAY_PICTURE" => $arParams["DISPLAY_PICTURE"],
+        "DISPLAY_PREVIEW_TEXT" => $arParams["DISPLAY_PREVIEW_TEXT"],
+        "DISPLAY_TOP_PAGER" => $arParams["DETAIL_DISPLAY_TOP_PAGER"],
+        "FIELD_CODE" => $arParams["DETAIL_FIELD_CODE"],
+        "FILTER_NAME" => "",
+        "HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
+        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+        "INCLUDE_IBLOCK_INTO_CHAIN" => $arParams["INCLUDE_IBLOCK_INTO_CHAIN"],
+        "INCLUDE_SUBSECTIONS" => '',
+        "MESSAGE_404" => $arParams["MESSAGE_404"],
+        "NEWS_COUNT" => $arParams["CATEGORY_ITEMS_COUNT"],
+        "PAGER_BASE_LINK_ENABLE" => "",
+        "PAGER_DESC_NUMBERING" => $arParams["PAGER_DESC_NUMBERING"],
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
+        "PAGER_SHOW_ALL" => $arParams["PAGER_SHOW_ALL"],
+        "PAGER_SHOW_ALWAYS" => $arParams["PAGER_SHOW_ALWAYS"],
+        "PAGER_TEMPLATE" => $arParams["PAGER_TEMPLATE"],
+        "PAGER_TITLE" => $arParams["PAGER_TITLE"],
+        "PARENT_SECTION" => '',
+        "PARENT_SECTION_CODE" => '',
+        "PREVIEW_TRUNCATE_LEN" => $arParams["PREVIEW_TRUNCATE_LEN"],
+        "PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
+        "SET_BROWSER_TITLE" => "",
+        "SET_LAST_MODIFIED" => $arParams["SET_LAST_MODIFIED"],
+        "SET_META_DESCRIPTION" => "",
+        "SET_META_KEYWORDS" => "",
+        "SET_STATUS_404" => $arParams["SET_STATUS_404"],
+        "SET_TITLE" => $arParams["SET_TITLE"],
+        "SHOW_404" => $arParams["SHOW_404"],
+        "SORT_BY1" => 'rand',
+        "SORT_BY2" => $arParams["SORT_BY2"],
+        "SORT_ORDER1" => $arParams["SORT_ORDER1"],
+        "SORT_ORDER2" => $arParams["SORT_ORDER2"],
+        "STRICT_SECTION_CHECK" => $arParams["STRICT_SECTION_CHECK"]
+    )
+);?>
+
