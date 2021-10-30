@@ -30,7 +30,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Документы", 
-		"", 
+		"/content/documents/", 
 		Array(), 
 		Array(), 
 		"" 
