@@ -121,19 +121,30 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer__wrap">
-                <form class="footer__form subscription-form" action="#" method="post">
-                    <label class="subscription-form__label footer__caption" for="subscription">Подписаться на новости</label>
-                    <div class="subscription-form__wrap">
-                        <input class="subscription-form__input" type="email" id="subscription" placeholder="Введите ваш e-mail">
-                        <button class="subscription-form__btn button" type="submit" aria-label="Отправить">
-                            <svg width="20" height="16">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#arrow"></use>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:sender.subscribe",
+                "subscribe",
+                array(
+                    "AJAX_MODE" => "Y",
+                    "AJAX_OPTION_ADDITIONAL" => "",
+                    "AJAX_OPTION_HISTORY" => "N",
+                    "AJAX_OPTION_JUMP" => "N",
+                    "AJAX_OPTION_STYLE" => "N",
+                    "CACHE_TIME" => "3600",
+                    "CACHE_TYPE" => "A",
+                    "CONFIRMATION" => "N",
+                    "HIDE_MAILINGS" => "N",
+                    "SET_TITLE" => "N",
+                    "SHOW_HIDDEN" => "N",
+                    "USER_CONSENT" => "N",
+                    "USER_CONSENT_ID" => "1",
+                    "USER_CONSENT_IS_CHECKED" => "Y",
+                    "USER_CONSENT_IS_LOADED" => "N",
+                    "USE_PERSONALIZATION" => "N",
+                    "COMPONENT_TEMPLATE" => "subscribe"
+                ),
+                false
+            );?>
         </div>
         <div class="footer__bot"><a class="footer__link" href="#">Пользовательское соглашение</a><a class="footer__link" href="#">Политика конфиденциальности</a></div>
     </div>
