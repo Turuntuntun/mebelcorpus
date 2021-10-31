@@ -33,12 +33,23 @@ class paginator
     {
         let parser = new DOMParser();
         let html = parser.parseFromString(result, "text/html");
-        let containerHtml = html.querySelector(this.containerSelector).firstElementChild;
-        let pagiHtml = html.querySelector(this.pagiContainerSelector).firstElementChild;
-        this.container.append(containerHtml);
+        let containerHtml = html.querySelector(this.containerSelector).children;
+        containerHtml = Array.prototype.slice.call(containerHtml);
+        this.insertToContainer(this.container,containerHtml);
+
+        let pagiHtml = html.querySelector(this.pagiContainerSelector).children;
+        pagiHtml = Array.prototype.slice.call(pagiHtml);
         this.pagination.innerHTML = '';
-        this.pagination.append(pagiHtml);
+        this.insertToContainer(this.pagination,pagiHtml);
+
         this.init();
+    }
+
+    insertToContainer(container,html)
+    {
+        for (let i = 0; i < html.length; i++) {
+            container.append(html[i]);
+        }
     }
 }
 let componentPaginator = new paginator();
