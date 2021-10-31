@@ -150,31 +150,18 @@
     </div>
 </footer>
 <!-- Выезжающее модальное окно-->
-<div class="modal modal--account" id="login">
-    <div class="modal__container">
-        <h2 class="modal__title title-second">Войти в личный кабинет</h2>
-        <p class="modal__warning">Неверный логин или пароль</p>
-        <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
-            <svg width="24" height="24">
-                <use xlink:href="assets/images/sprite.svg#close"></use>
-            </svg>
-        </button>
-        <form class="modal__form form" action="#" method="post">
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="email" name="email" placeholder="Email">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="password" name="password" placeholder="Пароль">
-                </label>
-            </div>
-            <button class="form__submit-btn button" type="submit">Войти</button>
-        </form>
-        <p class="modal__bot-text">Нет аккаунта? <a href="#" data-modal-trigger="registration">Зарегистрироваться</a></p>
-    </div>
-</div>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:system.auth.form",
+    "auth",
+    array(
+        "FORGOT_PASSWORD_URL" => "",
+        "PROFILE_URL" => "/personal/",
+        "REGISTER_URL" => "",
+        "SHOW_ERRORS" => "Y",
+        "COMPONENT_TEMPLATE" => "auth"
+    ),
+    false
+);?>
 <!-- Выезжающее модальное окно-->
 <div class="modal modal--account" id="registration">
     <div class="modal__container">

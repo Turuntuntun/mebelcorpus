@@ -88,10 +88,20 @@
                         </label>
                     </form>
                     <!-- форма поиска конец-->
-                    <div class="header__user-menu"><a class="header__account" href="#">
+                    <div class="header__user-menu">
+                        <a class="header__account"
+                        <?if (!$USER->IsAuthorized()){
+                            echo 'data-modal-trigger="login" href="#"';
+                        } else {
+                            echo 'href="/personal/"';
+                        }
+                        ?>>
                             <svg width="25" height="25">
                                 <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#user-outlined"></use>
-                            </svg><span>Личный кабинет</span></a><a class="header__cart" href="#">
+                            </svg>
+                            <span>Личный кабинет</span>
+                        </a>
+                        <a class="header__cart" href="#">
                             <svg width="27" height="27">
                                 <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#cart"></use>
                             </svg><sup>3</sup><span>Корзина</span></a>
