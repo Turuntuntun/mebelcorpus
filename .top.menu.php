@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Гарантии", 
-		"", 
+		"/content/guarantees/", 
 		Array(), 
 		Array(), 
 		"" 
