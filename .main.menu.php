@@ -37,7 +37,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Пресс-кит", 
-		"", 
+		"/content/press-kit/", 
 		Array(), 
 		Array(), 
 		"" 
