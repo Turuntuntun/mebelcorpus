@@ -13,29 +13,11 @@
 $this->setFrameMode(true);
 
 ?>
-
-<section class="catalog mb-90">
-    <div class="container">
-        <h1 class="title-first mb-60"><?=GetMessage('CT_BCSL_TITLE')?></h1>
-        <ul class="catalog__list catalog-menu">
-            <? foreach ($arResult['NEW_SECTIONS'] as $key => $arSection) :?>
-            <li class="catalog-menu__item">
-                <div class="main-catalog__card">
-                    <img class="main-catalog__img" src="<?=$arSection['PICTURE']['SRC']?>" alt="">
-                    <div class="main-catalog__wrap">
-                        <h3 class="main-catalog__caption title-third"><?=$arSection['NAME']?></h3>
-                        <ul class="catalog-menu__inner-list catalog-all">
-                            <? foreach ($arSection['CHILDS'] as $key2 => $arChilds) :?>
-                                <li class="catalog-all__item">
-                                    <a class="catalog-all__link" href="<?=$arChilds['SECTION_PAGE_URL']?>"><?=$arChilds['NAME']?></a>
-                                </li>
-                            <? endforeach;?>
-                        </ul>
-                        <a class="main-catalog__btn button" href="<?=$arSection['SECTION_PAGE_URL']?>"><?=GetMessage('CT_BCSL_BUTTON_ALL')?></a>
-                    </div>
-                </div>
-            </li>
+<div class="catalog-section__aside catalog-aside">
+    <ul class="catalog-aside__list">
+        <li class="catalog-aside__item">
+            <? foreach ($arResult['SECTIONS'] as $key => $arSeciton) :?>
+                <a class="catalog-aside__link" href="<?=$arSeciton['SECTION_PAGE_URL']?>"><?=$arSeciton['NAME']?></a></li>
             <? endforeach;?>
-        </ul>
-    </div>
-</section>
+    </ul>
+</div>

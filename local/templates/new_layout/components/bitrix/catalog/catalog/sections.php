@@ -38,7 +38,7 @@ if ($sectionListParams["COUNT_ELEMENTS"] === "Y")
 }
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
-	"catalog",
+	"catalog-main-section",
 	$sectionListParams,
 	$component,
 	($arParams["SHOW_TOP_ELEMENTS"] !== "N" ? array("HIDE_ICONS" => "Y") : array())
