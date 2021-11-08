@@ -101,10 +101,25 @@
                             </svg>
                             <span>Личный кабинет</span>
                         </a>
-                        <a class="header__cart" href="#">
-                            <svg width="27" height="27">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#cart"></use>
-                            </svg><sup>3</sup><span>Корзина</span></a>
+                        <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "basket", Array(
+                            "HIDE_ON_BASKET_PAGES" => "Y",	// Не показывать на страницах корзины и оформления заказа
+                            "PATH_TO_AUTHORIZE" => "",	// Страница авторизации
+                            "PATH_TO_BASKET" => SITE_DIR."personal/cart/",	// Страница корзины
+                            "PATH_TO_ORDER" => SITE_DIR."personal/order/make/",	// Страница оформления заказа
+                            "PATH_TO_PERSONAL" => SITE_DIR."personal/",	// Страница персонального раздела
+                            "PATH_TO_PROFILE" => SITE_DIR."personal/",	// Страница профиля
+                            "PATH_TO_REGISTER" => SITE_DIR."login/",	// Страница регистрации
+                            "POSITION_FIXED" => "N",	// Отображать корзину поверх шаблона
+                            "SHOW_AUTHOR" => "N",	// Добавить возможность авторизации
+                            "SHOW_EMPTY_VALUES" => "Y",	// Выводить нулевые значения в пустой корзине
+                            "SHOW_NUM_PRODUCTS" => "Y",	// Показывать количество товаров
+                            "SHOW_PERSONAL_LINK" => "Y",	// Отображать персональный раздел
+                            "SHOW_PRODUCTS" => "N",	// Показывать список товаров
+                            "SHOW_REGISTRATION" => "N",	// Добавить возможность регистрации
+                            "SHOW_TOTAL_PRICE" => "Y",	// Показывать общую сумму по товарам
+                        ),
+                            false
+                        );?>
                         <button class="header__burger-btn" data-burger aria-label="Раскрыть меню"><span></span></button>
                     </div>
                 </div>
