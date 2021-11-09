@@ -1,4 +1,5 @@
 <?php
+use Bitrix\Highloadblock\HighloadBlockTable;
 AddEventHandler("main", "OnEpilog", "Redirect404");
 function Redirect404() {
     if(defined("ERROR_404") ) {
@@ -34,4 +35,21 @@ function transformMonthInText($monthNumber)
     ];
 
     return $arrayMonth[$monthNumber];
+}
+
+function getClassHighload($tableName)
+{
+    if (CModule::IncludeModule("highloadblock")) {
+
+        $hlblock = \Bitrix\Highloadblock\HighloadBlockTable::getList([
+            'filter' => ['=TABLE_NAME' => $tableName]
+        ])->fetch();
+        if(!$hlblock){
+            return false;
+        }
+
+        $hlClassName = \Bitrix\Highloadblock\HighloadBlockTable::compileEntity($hlblock)->getDataClass();
+        return $hlClassName;
+    }
+    return false;
 }
