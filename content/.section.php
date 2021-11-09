@@ -1,5 +1,4 @@
 <?
-$sSectionName = "content";
 $arDirProperties = Array(
 
 );

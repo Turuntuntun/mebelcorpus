@@ -57,7 +57,16 @@
                             <div class="header__time"><span>Пн-Пт:</span> 09:00 – 18:00</div>
                             <div class="header__time"><span>Сб:</span> 10:00 – 13:00</div>
                         </div>
-                        <div class="header__note">Прием заказов на сайте<span>круглосуточно</span></div>
+                        <div class="header__note">
+                            <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => SITE_TEMPLATE_PATH.'/include/description_on_header.php'
+                                )
+                            );?>
+                        </div>
                     </div><a class="header__tel" href="tel:+78123093154">
                         <svg width="18" height="18">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#telephone"></use>
@@ -168,7 +177,16 @@
                             <div class="header__time"><span>Пн-Пт:</span> 09:00 – 18:00</div>
                             <div class="header__time"><span>Сб:</span> 10:00 – 13:00</div>
                         </div>
-                        <div class="header__note">Прием заказов на сайте<span>круглосуточно</span></div>
+                        <div class="header__note">
+                            <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                Array(
+                                    "AREA_FILE_SHOW" => "file",
+                                    "PATH" => SITE_TEMPLATE_PATH.'/include/description_on_header.php'
+                                )
+                            );?>
+                        </div>
                     </div>
                 </div>
             </div>
