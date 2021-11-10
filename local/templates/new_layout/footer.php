@@ -146,7 +146,22 @@
                 false
             );?>
         </div>
-        <div class="footer__bot"><a class="footer__link" href="#">Пользовательское соглашение</a><a class="footer__link" href="#">Политика конфиденциальности</a></div>
+        <?$APPLICATION->IncludeComponent("bitrix:menu", "document_menu", Array(
+            "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+            "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+            "DELAY" => "N",	// Откладывать выполнение шаблона меню
+            "MAX_LEVEL" => "1",	// Уровень вложенности меню
+            "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+            "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+            "MENU_CACHE_TYPE" => "A",	// Тип кеширования
+            "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+            "MENU_THEME" => "site",
+            "ROOT_MENU_TYPE" => "document",	// Тип меню для первого уровня
+            "USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+            "COMPONENT_TEMPLATE" => "document_menu"
+        ),
+            false
+        );?>
     </div>
 </footer>
 <!-- Выезжающее модальное окно-->
