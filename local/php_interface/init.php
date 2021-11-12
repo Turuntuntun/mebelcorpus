@@ -1,6 +1,9 @@
 <?php
 use Bitrix\Highloadblock\HighloadBlockTable;
+use Bitrix\Main\EventManager;
+
 AddEventHandler("main", "OnEpilog", "Redirect404");
+AddEventHandler("main", "OnBeforeProlog", "initCity");
 function Redirect404() {
     if(defined("ERROR_404") ) {
         LocalRedirect("/404.php", "404 Not Found");
@@ -53,3 +56,5 @@ function getClassHighload($tableName)
     }
     return false;
 }
+
+ require_once __DIR__ . "/location_new.php";

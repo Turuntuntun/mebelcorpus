@@ -8,7 +8,10 @@
                     "PATH" => SITE_TEMPLATE_PATH.'/include/logo_footer.php'
                 )
             );?>
-            <div class="footer__contacts"><a class="footer__tel" href="tel:+78123093154">+7 (812) 309-31-54</a><a class="footer__tel" href="tel:+79602835951">+7 (960) 283-59-51</a></div>
+            <div class="footer__contacts">
+                <a class="footer__tel" href="tel:+<?=preg_replace('/[^0-9]/', '', $GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE']['VALUE'])?>"><?=$GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE']['VALUE']?></a>
+                <a class="footer__tel" href="tel:+<?=preg_replace('/[^0-9]/', '', $GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE2']['VALUE'])?>"><?=$GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE2']['VALUE']?></a>
+            </div>
             <button class="footer__btn button button--ghost" type="button" data-modal-trigger="callback">Заказать звонок</button>
         </div>
         <div class="footer__column">
@@ -259,31 +262,63 @@
     false
 );?>
 <!-- Попап окно; добавляем класс active чтобы окно открывалось по умолчанию-->
-<div class="popup" id="select-city">
-    <div class="popup__container">
-        <h2 class="popup__title">Выберите город</h2>
-        <button class="popup__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
-            <svg width="24" height="24">
-                <use xlink:href="assets/images/sprite.svg#close"></use>
-            </svg>
-        </button>
-        <form class="search-form" method="get" action="#">
-            <label>
-                <input class="search-form__input" type="search" placeholder="Введите название города">
-            </label>
-            <button class="search-form__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="assets/images/sprite.svg#icons-search"></use>
-                </svg>
-            </button>
-        </form>
-        <ul class="popup__list city-list">
-            <li class="city-list__item"><a class="city-list__link active" href="#">Санкт-Петербург</a></li>
-            <li class="city-list__item"><a class="city-list__link" href="#">Москва</a></li>
-            <li class="city-list__item"><a class="city-list__link" href="#">Краснодар</a></li>
-        </ul>
-    </div>
-</div>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:news.list",
+    "regions",
+    Array(
+        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+        "ADD_SECTIONS_CHAIN" => "N",
+        "AJAX_MODE" => "N",
+        "AJAX_OPTION_ADDITIONAL" => "",
+        "AJAX_OPTION_HISTORY" => "N",
+        "AJAX_OPTION_JUMP" => "N",
+        "AJAX_OPTION_STYLE" => "N",
+        "CACHE_FILTER" => "N",
+        "CACHE_GROUPS" => "Y",
+        "CACHE_TIME" => "36000000",
+        "CACHE_TYPE" => "N",
+        "CHECK_DATES" => "Y",
+        "DETAIL_URL" => "",
+        "DISPLAY_BOTTOM_PAGER" => "N",
+        "DISPLAY_DATE" => "Y",
+        "DISPLAY_NAME" => "Y",
+        "DISPLAY_PICTURE" => "Y",
+        "DISPLAY_PREVIEW_TEXT" => "Y",
+        "DISPLAY_TOP_PAGER" => "N",
+        "FIELD_CODE" => array("",""),
+        "FILTER_NAME" => "",
+        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
+        "IBLOCK_ID" => "35",
+        "IBLOCK_TYPE" => "-",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+        "INCLUDE_SUBSECTIONS" => "Y",
+        "MESSAGE_404" => "",
+        "NEWS_COUNT" => "20",
+        "PAGER_BASE_LINK_ENABLE" => "N",
+        "PAGER_DESC_NUMBERING" => "N",
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+        "PAGER_SHOW_ALL" => "N",
+        "PAGER_SHOW_ALWAYS" => "N",
+        "PAGER_TEMPLATE" => ".default",
+        "PAGER_TITLE" => "Новости",
+        "PARENT_SECTION" => "",
+        "PARENT_SECTION_CODE" => "",
+        "PREVIEW_TRUNCATE_LEN" => "",
+        "PROPERTY_CODE" => array("",""),
+        "SET_BROWSER_TITLE" => "N",
+        "SET_LAST_MODIFIED" => "N",
+        "SET_META_DESCRIPTION" => "N",
+        "SET_META_KEYWORDS" => "N",
+        "SET_STATUS_404" => "N",
+        "SET_TITLE" => "N",
+        "SHOW_404" => "N",
+        "SORT_BY1" => "ACTIVE_FROM",
+        "SORT_BY2" => "SORT",
+        "SORT_ORDER1" => "DESC",
+        "SORT_ORDER2" => "ASC",
+        "STRICT_SECTION_CHECK" => "N"
+    )
+);?>
 </div>
 <div class="overlay" aria-label="Закрыть окно"></div>
 </body>

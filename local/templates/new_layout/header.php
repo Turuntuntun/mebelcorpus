@@ -1,5 +1,22 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
 <? use Bitrix\Main\Page\Asset;?>
+<?php
+if (CModule::IncludeModule("iblock")) {
+    function getRegionUser()
+    {
+        global $USER;
+        if ($USER->IsAuthorized()) {
+            $elem = CIBlockElement::getById(UserCity::getCurrentCity($USER->getId()))->getNextElement();
+        } else {
+            $elem = CIBlockElement::getById(UserCity::getSessionCity())->getNextElement();
+        }
+        $result['PROPS'] = $elem-> GetProperties();
+        $result['FIELDS'] =  $elem-> GetFields();
+        return $result;
+    }
+    $GLOBALS['UF_USER_REGION'] = getRegionUser();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +50,7 @@
                     <button class="header__location-btn" data-modal-trigger="select-city">
                         <svg width="15" height="15">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icon-gps-device"></use>
-                        </svg><span>Санкт-Петербург</span>
+                        </svg><span><?=$GLOBALS['UF_USER_REGION']['FIELDS']['NAME']?></span>
                     </button>
                     <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(
                         "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
@@ -54,8 +71,7 @@
                     );?>
                     <div class="header__info">
                         <div class="header__graphic">
-                            <div class="header__time"><span>Пн-Пт:</span> 09:00 – 18:00</div>
-                            <div class="header__time"><span>Сб:</span> 10:00 – 13:00</div>
+                            <div class="header__time"><?=$GLOBALS['UF_USER_REGION']['PROPS']['REGION_SCHEDULE']['VALUE']['TEXT']?></div>
                         </div>
                         <div class="header__note">
                             <?$APPLICATION->IncludeComponent(
@@ -67,10 +83,10 @@
                                 )
                             );?>
                         </div>
-                    </div><a class="header__tel" href="tel:+78123093154">
+                    </div><a class="header__tel" href="tel:+<?=preg_replace('/[^0-9]/', '', $GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE']['VALUE'])?>">
                         <svg width="18" height="18">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#telephone"></use>
-                        </svg><span>+7 (812) 309-31-54</span></a>
+                        </svg><span><?=$GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE']['VALUE']?></span></a>
                 </div>
             </div>
             <div class="header__container container">
