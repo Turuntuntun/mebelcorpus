@@ -233,52 +233,22 @@ if (CModule::IncludeModule("iblock")) {
                             </label>
                         </form>
                     </div>
-                    <div class="full-menu__wrap">
-                        <ul class="full-menu__list">
-                            <li class="full-menu__item full-menu__item--caption"><a class="full-menu__link" href="#">Мебель для гостинной</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Стенки</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Шкафы</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Журнальные столы</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Мягкая мебель</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Тумбы ТВ</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Стулья</a></li>
-                        </ul>
-                        <ul class="full-menu__list">
-                            <li class="full-menu__item full-menu__item--caption"><a class="full-menu__link" href="#">Мебель для спальни</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Спальные гарнитуры</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Модульные спальни</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Кровати</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Матрасы</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Комоды</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Прикроватные тумбы</a></li>
-                        </ul>
-                        <ul class="full-menu__list">
-                            <li class="full-menu__item full-menu__item--caption"><a class="full-menu__link" href="#">Мебель для кухни</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Модульные кухни</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Готовые решения</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Обеденные группы</a></li>
-                            <li class="full-menu__item full-menu__item--caption" style="margin-top: 47px;"><a class="full-menu__link" href="#">Кабинет</a></li>
-                        </ul>
-                        <ul class="full-menu__list">
-                            <li class="full-menu__item full-menu__item--caption"><a class="full-menu__link" href="#">Прихожие</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Модульные прихожие</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Готовые решения</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Обувницы</a></li>
-                        </ul>
-                        <ul class="full-menu__list">
-                            <li class="full-menu__item full-menu__item--caption"><a class="full-menu__link" href="#">Детская мебель</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Модульные детские</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Готовые решения</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Компьютерные столы</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Компьютерные стулья</a></li>
-                        </ul>
-                        <ul class="full-menu__list">
-                            <li class="full-menu__item full-menu__item--caption"><a class="full-menu__link" href="#">Мягкая мебель</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Диваны</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Модульные диваны</a></li>
-                            <li class="full-menu__item"><a class="full-menu__link" href="#">Кресла</a></li>
-                        </ul>
-                    </div>
+                    <?$APPLICATION->IncludeComponent("bitrix:menu", "catalog", Array(
+                        "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                        "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+                        "DELAY" => "N",	// Откладывать выполнение шаблона меню
+                        "MAX_LEVEL" => "2",	// Уровень вложенности меню
+                        "MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+                            0 => "",
+                        ),
+                        "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                        "MENU_CACHE_TYPE" => "A",	// Тип кеширования
+                        "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                        "ROOT_MENU_TYPE" => "bot_catalog",	// Тип меню для первого уровня
+                        "USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+                    ),
+                        false
+                    );?>
                 </div>
             </div>
         </nav>

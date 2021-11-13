@@ -8,7 +8,7 @@ $aMenuLinksExt=$APPLICATION->IncludeComponent("bitrix:menu.sections", "", array(
     "DETAIL_PAGE_URL" => "#SECTION_ID#/#ELEMENT_ID#.html",
     "IBLOCK_TYPE" => "catalog",
     "IBLOCK_ID" => "29",
-    "DEPTH_LEVEL" => "1",
+    "DEPTH_LEVEL" => "2",
     "CACHE_TYPE" => "A",
     "CACHE_TIME" => "36000000"
 ),
