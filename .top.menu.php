@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Как купить", 
-		"", 
+		"/content/how-to-buy/", 
 		Array(), 
 		Array(), 
 		"" 

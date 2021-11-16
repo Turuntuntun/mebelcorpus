@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="popup" id="select-city">
+<div class="popup" id="select-city" data-popup>
     <div class="popup__container">
         <h2 class="popup__title">Выберите город</h2>
         <button class="popup__close-btn button-close" type="button" aria-label="Закрыть окно" data-close="">

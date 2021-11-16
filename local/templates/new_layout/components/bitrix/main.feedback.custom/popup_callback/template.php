@@ -11,7 +11,7 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
  */
 ?>
 
-<div class="modal modal--callback" id="callback">
+<div class="modal modal--callback" id="callback" data-popup>
     <div class="modal__container success" hidden>
         <h2 class="modal__title title-second"><?=$arParams['OK_TEXT']?></h2>
     </div>

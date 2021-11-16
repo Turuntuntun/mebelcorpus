@@ -4,7 +4,7 @@ CJSCore::Init();
 
 ?>
 
-<div class="modal modal--account <?if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR']) echo 'active'?>" id="login">
+<div class="modal modal--account <?if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR']) echo 'active'?>" id="login" data-popup>
     <div class="modal__container">
         <h2 class="modal__title title-second"><?=GetMessage("AUTH_TITLE_TEXT")?></h2>
         <?

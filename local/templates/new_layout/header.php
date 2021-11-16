@@ -10,9 +10,10 @@ if (CModule::IncludeModule("iblock")) {
         } else {
             $elem = CIBlockElement::getById(UserCity::getSessionCity())->getNextElement();
         }
-        $result['PROPS'] = $elem-> GetProperties();
-        $result['FIELDS'] =  $elem-> GetFields();
+            $result['PROPS'] = $elem-> GetProperties();
+            $result['FIELDS'] =  $elem-> GetFields();
         return $result;
+
     }
     $GLOBALS['UF_USER_REGION'] = getRegionUser();
 }

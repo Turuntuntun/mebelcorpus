@@ -26,7 +26,11 @@ class UserCity
 
     public static function getSessionCity()
     {
-        return Application::getInstance()->getContext()->getRequest()->getCookie("setCityId");
+        $cityId = Application::getInstance()->getContext()->getRequest()->getCookie("setCityId");
+        if ($cityId) {
+            return $cityId;
+        }
+        return  '64460';
     }
 
     public static function getCurrentCity($userId)

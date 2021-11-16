@@ -181,12 +181,12 @@
     false
 );?>
 <!-- Выезжающее модальное окно-->
-<div class="modal modal--account" id="registration">
+<div class="modal modal--account" id="registration" data-popup>
     <div class="modal__container">
         <h2 class="modal__title title-second">Зарегистрироваться</h2>
         <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close>
             <svg width="24" height="24">
-                <use xlink:href="assets/images/sprite.svg#close"></use>
+                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>
             </svg>
         </button>
         <div class="toggle-form mb-60">
