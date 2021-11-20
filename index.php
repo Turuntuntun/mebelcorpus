@@ -138,9 +138,15 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?><?$APPLICATION->IncludeComponent(
+);?> <section class="cards mb-90">
+<div class="container">
+	<div class="cards__header title-wb mb-60">
+		<h2 class="title-second">Новинки</h2>
+ <a class="cards__more title-wb__link" href="/content/new_catalog/">Смотреть все</a>
+	</div>
+	 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
-	"new_on_main",
+	"catalog-detail",
 	Array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
@@ -162,7 +168,7 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 		"COMPATIBLE_MODE" => "Y",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
-		"DETAIL_URL" => "",
+		"DETAIL_URL" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#/",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_COMPARE" => "N",
@@ -249,7 +255,10 @@ $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 		"USE_PRICE_COUNT" => "N",
 		"USE_PRODUCT_QUANTITY" => "N"
 	)
-);?><?$APPLICATION->IncludeComponent(
+);?>
+</div>
+ </section>
+<?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"news_on_main",
 	Array(

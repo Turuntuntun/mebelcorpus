@@ -54,8 +54,9 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
                         {{NAME}}:{{VALUE}}
                     </span>
                 {{/COLUMN_LIST}}
-                <a class="cart-list__name" href="#">{{NAME}}</a>
-                <span class="cart-list__text">Цвет: Светлый дуб</span></div>
+                <a class="cart-list__name" href="{{DETAIL_PAGE_URL}}">{{NAME}}</a>
+<!--                <span class="cart-list__text">Цвет: Светлый дуб</span>-->
+            </div>
         </div>
 
         <div class="cart-list__range"

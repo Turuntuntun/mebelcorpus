@@ -21,6 +21,7 @@ use \Bitrix\Main\Localization\Loc;
  * @var string $buttonSizeClass
  * @var CatalogSectionComponent $component
  */
+
 ?>
 <div class="product-card">
     <a class="product-card__link" href="<?=$arResult['ITEM']['DETAIL_PAGE_URL']?>">
@@ -33,15 +34,16 @@ use \Bitrix\Main\Localization\Loc;
             <div class="product-card__bot">
                 <div class="product-card__price"><?=$arResult['ITEM']['ITEM_PRICES'][0]['PRINT_RATIO_PRICE']?></div>
                 <? if ($arResult['ITEM']['PROPERTIES']['COLORS']['VALUE']) :?>
-                <button data-modal-trigger="addincart-success" class="product-card__btn button" data-add-to-basket-item="<?=$arResult['ITEM']['ID']?>"   data-add-to-basket-color="<?=$arResult['ITEM']['PROPERTIES']['COLORS']['VALUE'][0]?>">
-                    <svg width="21" height="21">
-                        <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#cart"></use>
-                    </svg><span><?=GetMessage('UF_ITEM_BUTTON_SUBMIT')?></span>
-                </button>
+                    <button data-modal-trigger="addincart-success" class="product-card__btn button" data-add-to-basket-item="<?=$arResult['ITEM']['ID']?>"   data-add-to-basket-color="<?=$arResult['ITEM']['PROPERTIES']['COLORS']['VALUE'][0]?>">
+                        <svg width="21" height="21">
+                            <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#cart"></use>
+                        </svg><span><?=GetMessage('UF_ITEM_BUTTON_SUBMIT')?></span>
+                    </button>
                 <? endif;?>
             </div>
-        </div></a>
-    <button class="product-card__like-btn" aria-label="Добавить в избранное">
+        </div>
+    </a>
+    <button class="product-card__like-btn" aria-label="Добавить в избранное" data-fav-id="<?=$arResult['ITEM']['ID']?>">
         <svg width="20" height="20">
             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#heart"></use>
         </svg>

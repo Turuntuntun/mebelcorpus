@@ -62,26 +62,58 @@ $APPLICATION->IncludeComponent(
 );
 
 ?>
+    <?
+    if ($isFilter || $isSidebar): ?>
+        <? if ($isFilter): ?>
+            <?
+            $APPLICATION->IncludeComponent(
+                "bitrix:catalog.smart.filter",
+                "catalog",
+                array(
+                    "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                    "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+                    "SECTION_ID" => $arCurSection['ID'],
+                    "FILTER_NAME" => $arParams["FILTER_NAME"],
+                    "PRICE_CODE" => $arParams["~PRICE_CODE"],
+                    "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                    "CACHE_TIME" => $arParams["CACHE_TIME"],
+                    "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                    "SAVE_IN_SESSION" => "N",
+                    "FILTER_VIEW_MODE" => $arParams["FILTER_VIEW_MODE"],
+                    "XML_EXPORT" => "N",
+                    "SECTION_TITLE" => "NAME",
+                    "SECTION_DESCRIPTION" => "DESCRIPTION",
+                    'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
+                    "TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
+                    'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
+                    'CURRENCY_ID' => $arParams['CURRENCY_ID'],
+                    "SEF_MODE" => $arParams["SEF_MODE"],
+                    "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
+                    "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
+                    "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
+                    "INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
+                ),
+                $component,
+                array('HIDE_ICONS' => 'Y')
+            );
+            ?>
+        <? endif ?>
+    <?endif
+    ?>
     <div class="catalog-section__content">
         <div class="catalog-section__filter-menu filter-menu">
             <div class="filter-menu__select-wrap select">
-                <select name="">
-                    <option value="">Сортировка</option>
-                    <option value="">По наименованию</option>
-                    <option value="">По популярности</option>
+                <select name="sort_by_one">
+                    <option value="default">Сортировка</option>
+                    <option value="?SORT=NAME">По наименованию</option>
+                    <option value="?SORT=POP">По популярности</option>
                 </select>
             </div>
             <div class="filter-menu__select-wrap select">
-                <select name="">
-                    <option value="">Цена</option>
-                    <option value="">Недорогие</option>
-                    <option value="">Дорогие</option>
-                </select>
-            </div>
-            <div class="filter-menu__select-wrap select">
-                <select name="">
-                    <option value="">Материал</option>
-                    <option value="">Дерево</option>
+                <select name="sort_by_two">
+                    <option value="default">Цена</option>
+                    <option value="?SORT=PRICE&TYPE=MAX">Недорогие</option>
+                    <option value="?SORT=PRICE&TYPE=MIN">Дорогие</option>
                 </select>
             </div>
             <button class="filter-menu__btn" data-modal-trigger="full-filter">
@@ -219,45 +251,9 @@ $intSectionID = $APPLICATION->IncludeComponent(
     ),
     $component
 );
+
 ?>
     </div>
 </div>
-        <?
-if ($isFilter || $isSidebar): ?>
-    <? if ($isFilter): ?>
-        <?
-        $APPLICATION->IncludeComponent(
-            "bitrix:catalog.smart.filter",
-            "catalog",
-            array(
-                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                "SECTION_ID" => $arCurSection['ID'],
-                "FILTER_NAME" => $arParams["FILTER_NAME"],
-                "PRICE_CODE" => $arParams["~PRICE_CODE"],
-                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
-                "CACHE_TIME" => $arParams["CACHE_TIME"],
-                "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-                "SAVE_IN_SESSION" => "N",
-                "FILTER_VIEW_MODE" => $arParams["FILTER_VIEW_MODE"],
-                "XML_EXPORT" => "N",
-                "SECTION_TITLE" => "NAME",
-                "SECTION_DESCRIPTION" => "DESCRIPTION",
-                'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-                "TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
-                'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
-                'CURRENCY_ID' => $arParams['CURRENCY_ID'],
-                "SEF_MODE" => $arParams["SEF_MODE"],
-                "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-                "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
-                "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
-                "INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
-            ),
-            $component,
-            array('HIDE_ICONS' => 'Y')
-        );
-        ?>
-    <? endif ?>
-<?endif
-?>
+
 </div>
