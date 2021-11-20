@@ -102,8 +102,8 @@ if (isset($arResult['ITEM']))
 	$itemHasDetailUrl = isset($item['DETAIL_PAGE_URL']) && $item['DETAIL_PAGE_URL'] != '';
 	?>
 
-    <li class="cards__item swiper-slide"
-		id="<?=$areaId?>" data-entity="item">
+	<li class="cards__item swiper-slide"
+		id="<?=$areaId?>">
 		<?
 		$documentRoot = Main\Application::getDocumentRoot();
 		$templatePath = mb_strtolower($arResult['TYPE']).'/template.php';
