@@ -283,15 +283,11 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 				if (!empty($recommendedData['IBLOCK_LINK']) || !empty($recommendedData['ALL_LINK']))
 				{
 					?>
-					<div class='row'>
-						<div class='col-xs-12' data-entity="parent-container">
-							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
-								<?=GetMessage('CATALOG_RECOMMENDED_BY_LINK')?>
-							</div>
-							<?
+
+					<?php
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.recommended.products',
-								'',
+								'catalog',
 								array(
 									'ID' => $elementId,
 									'IBLOCK_ID' => $arParams['IBLOCK_ID'],
@@ -379,10 +375,6 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 								),
 								$component
 							);
-							?>
-						</div>
-					</div>
-					<?
 				}
 			}
 		}

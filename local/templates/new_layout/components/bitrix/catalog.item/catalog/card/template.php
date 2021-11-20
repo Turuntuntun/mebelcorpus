@@ -32,11 +32,13 @@ use \Bitrix\Main\Localization\Loc;
             </div>
             <div class="product-card__bot">
                 <div class="product-card__price"><?=$arResult['ITEM']['ITEM_PRICES'][0]['PRINT_RATIO_PRICE']?></div>
-                <div class="product-card__btn button">
+                <? if ($arResult['ITEM']['PROPERTIES']['COLORS']['VALUE']) :?>
+                <button data-modal-trigger="addincart-success" class="product-card__btn button" data-add-to-basket-item="<?=$arResult['ITEM']['ID']?>"   data-add-to-basket-color="<?=$arResult['ITEM']['PROPERTIES']['COLORS']['VALUE'][0]?>">
                     <svg width="21" height="21">
                         <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#cart"></use>
                     </svg><span><?=GetMessage('UF_ITEM_BUTTON_SUBMIT')?></span>
-                </div>
+                </button>
+                <? endif;?>
             </div>
         </div></a>
     <button class="product-card__like-btn" aria-label="Добавить в избранное">

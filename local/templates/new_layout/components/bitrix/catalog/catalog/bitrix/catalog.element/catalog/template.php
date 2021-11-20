@@ -638,19 +638,3 @@ else
 }
 
 ?>
-<div class="popup" id="addincart-success" data-popup="">
-    <div class="popup__container">
-        <h2 class="popup__title"><?=GetMessage('CT_BCE_CATALOG_POPUP_TITLE')?></h2>
-        <button class="popup__close-btn button-close" type="button" aria-label="Закрыть окно" data-close="">
-            <svg width="24" height="24">
-                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>
-            </svg>
-        </button>
-        <ul class="popup__list btn-list">
-            <li class="btn-list__item"><a class="btn-list__btn button" href="<?=$arParams['BASKET_URL']?>"><?=GetMessage('CT_BCE_CATALOG_TO_ORDER_CREATE')?></a></li>
-            <li class="btn-list__item">
-                <a class="btn-list__btn button button--ghost" data-close href="/catalog/"><?=GetMessage('CT_BCE_CATALOG_TO_BUY_TO')?></a>
-            </li>
-        </ul>
-    </div>
-</div>
