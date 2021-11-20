@@ -27,26 +27,26 @@ if ($arResult['DATA_SAVED'] == 'Y')
 <?=$arResult["BX_SESSION_CHECK"]?>
 <input type="hidden" name="lang" value="<?=LANG?>" />
 <input type="hidden" name="ID" value=<?=$arResult["ID"]?> />
-    <div class="form__item">
+    <div class="form__item disabled">
         <label class="form__label" for="surname"> <?=GetMessage('LAST_NAME')?></label>
-        <input class="form__input" id="surname" type="text" name="LAST_NAME" maxlength="50" value="<?=$arResult["arUser"]["LAST_NAME"]?>" />
+        <input class="form__input" id="surname" type="text" name="LAST_NAME" maxlength="50" value="<?=$arResult["arUser"]["LAST_NAME"]?>" disabled="disabled"/>
     </div>
-    <div class="form__item">
+    <div class="form__item disabled">
         <label class="form__label" for="name"><?=GetMessage('NAME')?></label>
-        <input class="form__input" id="name" type="text" name="NAME" maxlength="50" value="<?=$arResult["arUser"]["NAME"]?>" />
+        <input class="form__input" id="name" type="text" name="NAME" maxlength="50" value="<?=$arResult["arUser"]["NAME"]?>" disabled="disabled"/>
     </div>
 
-    <div class="form__item">
+    <div class="form__item disabled">
         <label class="form__label" for="patronymic"><?=GetMessage('SECOND_NAME')?></label>
-        <input class="form__input" id="patronymic"  type="text" name="SECOND_NAME" maxlength="50" value="<?=$arResult["arUser"]["SECOND_NAME"]?>" />
+        <input class="form__input" id="patronymic"  type="text" name="SECOND_NAME" maxlength="50" value="<?=$arResult["arUser"]["SECOND_NAME"]?>" disabled="disabled"/>
     </div>
-    <div class="form__item">
+    <div class="form__item disabled">
         <label class="form__label" for="form-tel"><?=GetMessage('USER_PHONE')?></label>
-        <input class="form__input" id="form-tel" type="text" name="PERSONAL_PHONE" maxlength="50" value="<? echo $arResult["arUser"]["PERSONAL_PHONE"]?>" />
+        <input class="form__input" id="form-tel" type="text" name="PERSONAL_PHONE" maxlength="50" value="<? echo $arResult["arUser"]["PERSONAL_PHONE"]?>" disabled="disabled"/>
     </div>
-    <div class="form__item">
+    <div class="form__item disabled">
         <label class="form__label" for="form-email"><?=GetMessage('EMAIL')?></label>
-        <input class="form__input" id="form-email" type="text" name="EMAIL" maxlength="50" value="<? echo $arResult["arUser"]["EMAIL"]?>" />
+        <input class="form__input" id="form-email" type="text" name="EMAIL" maxlength="50" value="<? echo $arResult["arUser"]["EMAIL"]?>" disabled="disabled"/>
     </div>
 
     <label class="form__checkbox checkbox">
