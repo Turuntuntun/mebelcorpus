@@ -75,7 +75,6 @@ $element = CIBlockElement::getList(array(),array('CODE'=>$arResult["VARIABLES"][
 $props = $element->getProperties();
 $needArray = $props['UF_GOODS']['VALUE'];
 $GLOBALS['filterDiscount'] = array('ID'=>$needArray);
-var_dump($needArray);
 ?>
 <section class="cards mb-90">
 	<div class="container">
@@ -120,7 +119,7 @@ var_dump($needArray);
 				'SECTION_ID_VARIABLE' => $arParams['SECTION_ID_VARIABLE'],
 
 				'SET_TITLE' => $arParams['SET_TITLE'],
-				'PRICE_CODE' => $arParams['PRICE_CODE'],
+				'PRICE_CODE' => array("BASE","Opt"),
 				'USE_PRICE_COUNT' => $arParams['USE_PRICE_COUNT'],
 				'SHOW_PRICE_COUNT' => $arParams['SHOW_PRICE_COUNT'],
 
