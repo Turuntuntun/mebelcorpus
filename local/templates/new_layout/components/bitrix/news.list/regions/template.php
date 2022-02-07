@@ -11,8 +11,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+use \Bitrix\Main\Application;
 ?>
-<div class="popup" id="select-city" data-popup>
+<div class="popup <?= (Application::getInstance()->getContext()->getRequest()->getCookie("isCitySet")) ? '' : 'active' ?> " id="select-city" data-popup >
     <div class="popup__container">
         <h2 class="popup__title">Выберите город</h2>
         <button class="popup__close-btn button-close" type="button" aria-label="Закрыть окно" data-close="">
@@ -23,7 +24,7 @@ $this->setFrameMode(true);
         <ul class="popup__list city-list">
             <? foreach ($arResult['ITEMS'] as $key => $arItem) :?>
                 <li class="city-list__item">
-                    <a class="city-list__link <? if ($GLOBALS['UF_USER_REGION']['FIELDS']['ID'] == $arItem['ID']) echo 'active'?>" href="<?=$APPLICATION->getCurPAge()?>?setCityId=<?=$arItem['ID']?>">
+                    <a class="city-list__link <? if ($GLOBALS['UF_USER_REGION']['FIELDS']['ID'] == $arItem['ID']) echo 'active'?>" href="<?=$APPLICATION->getCurPAge()?>?setCityId=<?=$arItem['ID']?>&isCitySet=true">
                         <?=$arItem['NAME']?>
                     </a>
                 </li>

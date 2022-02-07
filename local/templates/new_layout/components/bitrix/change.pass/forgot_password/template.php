@@ -36,7 +36,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
                 </div>
     <div class="account__btns">
         <input class="account__save-btn button" type="submit" name="submit-change-pass" value="<?=GetMessage("SAVE_PASSWORD")?>">
-        <input class="account__save-btn button button--ghost" type="reset" value="<?=GetMessage('RESET_PASSWORD');?>">
+        <input class="account__save-btn button button--ghost" type="reset" value="<?=GetMessage('RESET_PASSWORD');?>" data-change-cancel>
     </div>
 </form>
 

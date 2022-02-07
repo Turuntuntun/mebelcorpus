@@ -1,4 +1,6 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
+    die();
+}
 
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
@@ -11,21 +13,18 @@ use Bitrix\Main\ModuleManager;
  * @var array $arCurSection
  */
 
-if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
-{
-	$basketAction = isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '';
+if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y') {
+    $basketAction = isset($arParams['COMMON_ADD_TO_BASKET_ACTION']) ? $arParams['COMMON_ADD_TO_BASKET_ACTION'] : '';
+} else {
+    $basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
 }
-else
-{
-	$basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
-}
-$currentSection = CIBlockSection::getList(array(),array('IBLOCK_ID'=>$arParams['IBLOCK_ID'],'CODE'=>$arResult['VARIABLES']['SECTION_CODE']))->GetNext();
+$currentSection = CIBlockSection::getList(array(), array('IBLOCK_ID'=>$arParams['IBLOCK_ID'],'CODE'=>$arResult['VARIABLES']['SECTION_CODE']))->GetNext();
 
 
 ?>
 <h1 class="catalog-section__title title-first mb-60"><?=$currentSection['NAME']?></h1>
 <div class="catalog-section__wrap">
-<?
+<?php
 $sectionListParams = array(
     "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
     "IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -42,11 +41,9 @@ $sectionListParams = array(
     "HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
     "ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
 );
-if ($sectionListParams["COUNT_ELEMENTS"] === "Y")
-{
+if ($sectionListParams["COUNT_ELEMENTS"] === "Y") {
     $sectionListParams["COUNT_ELEMENTS_FILTER"] = "CNT_ACTIVE";
-    if ($arParams["HIDE_NOT_AVAILABLE"] == "Y")
-    {
+    if ($arParams["HIDE_NOT_AVAILABLE"] == "Y") {
         $sectionListParams["COUNT_ELEMENTS_FILTER"] = "CNT_AVAILABLE";
     }
 }
@@ -62,14 +59,14 @@ $APPLICATION->IncludeComponent(
 );
 
 ?>
-    <?
+    <?php
     if ($isFilter || $isSidebar): ?>
-        <? if ($isFilter): ?>
-            <?
+        <?php if ($isFilter): ?>
+            <?php
             $APPLICATION->IncludeComponent(
-                "bitrix:catalog.smart.filter",
-                "catalog",
-                array(
+    "bitrix:catalog.smart.filter",
+    "catalog",
+    array(
                     "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
                     "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                     "SECTION_ID" => $arCurSection['ID'],
@@ -93,11 +90,11 @@ $APPLICATION->IncludeComponent(
                     "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
                     "INSTANT_RELOAD" => $arParams["INSTANT_RELOAD"],
                 ),
-                $component,
-                array('HIDE_ICONS' => 'Y')
-            );
+    $component,
+    array('HIDE_ICONS' => 'Y')
+);
             ?>
-        <? endif ?>
+        <?php endif ?>
     <?endif
     ?>
     <div class="catalog-section__content">
@@ -122,11 +119,11 @@ $APPLICATION->IncludeComponent(
                 </svg><span>Фильтр</span>
             </button>
         </div>
-    <?
+    <?php
 $intSectionID = $APPLICATION->IncludeComponent(
-    "bitrix:catalog.section",
-    "catalog",
-    array(
+        "bitrix:catalog.section",
+        "catalog",
+        array(
         "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
         "ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
@@ -249,8 +246,8 @@ $intSectionID = $APPLICATION->IncludeComponent(
         'COMPATIBLE_MODE' => (isset($arParams['COMPATIBLE_MODE']) ? $arParams['COMPATIBLE_MODE'] : ''),
         'DISABLE_INIT_JS_IN_COMPONENT' => (isset($arParams['DISABLE_INIT_JS_IN_COMPONENT']) ? $arParams['DISABLE_INIT_JS_IN_COMPONENT'] : '')
     ),
-    $component
-);
+        $component
+    );
 
 ?>
     </div>

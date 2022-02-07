@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Новинки", 
-		"", 
+		"/catalog/novinki/", 
 		Array(), 
 		Array(), 
 		"" 
@@ -44,7 +44,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Снято с производства", 
-		"", 
+		"/catalog/out_of/", 
 		Array(), 
 		Array(), 
 		"" 

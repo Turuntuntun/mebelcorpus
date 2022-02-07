@@ -1,32 +1,43 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
-<? use Bitrix\Main\Page\Asset;?>
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
+    die();
+} ?>
+<?php use Bitrix\Main\Page\Asset;
+
+?>
 <?php
 if (CModule::IncludeModule("iblock")) {
-    function getRegionUser()
-    {
-        global $USER;
-        if ($USER->IsAuthorized()) {
-            $elem = CIBlockElement::getById(UserCity::getCurrentCity($USER->getId()))->getNextElement();
-        } else {
-            $elem = CIBlockElement::getById(UserCity::getSessionCity())->getNextElement();
-        }
-            $result['PROPS'] = $elem-> GetProperties();
-            $result['FIELDS'] =  $elem-> GetFields();
-        return $result;
+    // function getRegionUser()
+    // {
+    //     global $USER;
+    //     if ($USER->IsAuthorized()) {
+    //         $elem = CIBlockElement::getById(UserCity::getCurrentCity($USER->getId()))->getNextElement();
+    //     } else {
+    //         $elem = CIBlockElement::getById(UserCity::getSessionCity())->getNextElement();
+    //     }
 
-    }
-    $GLOBALS['UF_USER_REGION'] = getRegionUser();
+    //     $result['PROPS'] = $elem-> GetProperties();
+    //     $result['FIELDS'] =  $elem-> GetFields();
+    //     return $result;
+    // }
+    // $GLOBALS['UF_USER_REGION'] = getRegionUser();
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title><? $APPLICATION->ShowTitle(); ?></title>
+    <title><?php $APPLICATION->ShowTitle(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/fav.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/fav.png">
+
+    <!-- range slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css">
+
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/assets/styles/swiper-bundle.min.css");?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/assets/styles/accordion.min.css");?>
     <?Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/assets/styles/app.min.css");?>
@@ -35,14 +46,21 @@ if (CModule::IncludeModule("iblock")) {
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/scripts/accordion.min.js");?>
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/scripts/swiper-bundle.min.js");?>
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/scripts/spotlight.bundle.js");?>
+    <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/scripts/rangeslider.js");?>
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/scripts/map.js");?>
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/scripts/main.js");?>
-    <? $APPLICATION->ShowHead(); ?>
+    <?php $APPLICATION->ShowHead(); ?>
 </head>
 <body>
 <div id="panel">
-    <? $APPLICATION->ShowPanel(); ?>
+    <?php $APPLICATION->ShowPanel(); ?>
 </div>
+
+<?php
+    // echo '<pre>';
+    // var_dump($GLOBALS['UF_USER_REGION']['PROPS']['RETAIL_PRICE_TYPE_CODE']['VALUE']);
+    // die();
+?>
 <div class="wrapper">
     <header class="header">
         <nav class="header__nav">
@@ -53,7 +71,10 @@ if (CModule::IncludeModule("iblock")) {
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icon-gps-device"></use>
                         </svg><span><?=$GLOBALS['UF_USER_REGION']['FIELDS']['NAME']?></span>
                     </button>
-                    <?$APPLICATION->IncludeComponent("bitrix:menu", "top_menu", Array(
+                    <?$APPLICATION->IncludeComponent(
+    "bitrix:menu",
+    "top_menu",
+    array(
                         "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
                         "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
                         "DELAY" => "N",	// Откладывать выполнение шаблона меню
@@ -68,21 +89,21 @@ if (CModule::IncludeModule("iblock")) {
                         "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
                         "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
                     ),
-                        false
-                    );?>
+    false
+);?>
                     <div class="header__info">
                         <div class="header__graphic">
                             <div class="header__time"><?=$GLOBALS['UF_USER_REGION']['PROPS']['REGION_SCHEDULE']['VALUE']['TEXT']?></div>
                         </div>
                         <div class="header__note">
                             <?$APPLICATION->IncludeComponent(
-                                "bitrix:main.include",
-                                "",
-                                Array(
+                        "bitrix:main.include",
+                        "",
+                        array(
                                     "AREA_FILE_SHOW" => "file",
                                     "PATH" => SITE_TEMPLATE_PATH.'/include/description_on_header.php'
                                 )
-                            );?>
+                    );?>
                         </div>
                     </div><a class="header__tel" href="tel:+<?=preg_replace('/[^0-9]/', '', $GLOBALS['UF_USER_REGION']['PROPS']['REGION_PHONE']['VALUE'])?>">
                         <svg width="18" height="18">
@@ -92,42 +113,47 @@ if (CModule::IncludeModule("iblock")) {
             </div>
             <div class="header__container container">
                 <div class="header__primary header-wrap">
-                    <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                    <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                array(
                             "AREA_FILE_SHOW" => "file",
                             "PATH" => SITE_TEMPLATE_PATH.'/include/logo_header.php'
                         )
-                    );?>
+                            );?>
                     <button class="header__toggle-menu button" data-catalog-toggle>
                         <svg width="14" height="14">
                             <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#hamburger-button"></use>
                         </svg><span>Каталог</span>
                     </button>
                     <!-- форма поиска-->
-                    <form class="header__search search-form" method="get" action="#">
-                        <button class="search-form__btn" type="submit">
-                            <svg width="20" height="20">
-                                <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#icons-search"></use>
-                            </svg>
-                        </button>
-                        <label>
-                            <input class="search-form__input" type="search" placeholder="Поиск по сайту">
-                        </label>
-                    </form>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:search.form",
+                        "search",
+                        array(
+                        "PAGE" => "#SITE_DIR#search/index.php",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
+                        "USE_SUGGEST" => "N",	// Показывать подсказку с поисковыми фразами
+                    ),
+                        false
+                    );?>
                     <!-- форма поиска конец-->
                     <div class="header__user-menu">
                         <a class="header__account"
-                        <?if (!$USER->IsAuthorized()){
-                            echo 'data-modal-trigger="login" href="#"';
-                        } else {
-                            echo 'href="/personal/"';
-                        }
+                        <?if (!$USER->IsAuthorized()) {
+                        echo 'data-modal-trigger="login" href="#"';
+                    } else {
+                        echo 'href="/personal/"';
+                    }
                         ?>>
                             <svg width="25" height="25">
                                 <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#user-outlined"></use>
                             </svg>
                             <span>Личный кабинет</span>
                         </a>
-                        <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "basket", Array(
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:sale.basket.basket.line",
+                            "basket",
+                            array(
                             "HIDE_ON_BASKET_PAGES" => "Y",	// Не показывать на страницах корзины и оформления заказа
                             "PATH_TO_AUTHORIZE" => "",	// Страница авторизации
                             "PATH_TO_BASKET" => SITE_DIR."personal/cart/",	// Страница корзины
@@ -167,7 +193,10 @@ if (CModule::IncludeModule("iblock")) {
                         <li class="header__item"><a class="header__link" href="#">Контакты</a></li>
                     </ul>
                 </div>
-                <?$APPLICATION->IncludeComponent("bitrix:menu", "main_menu", Array(
+                <?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "main_menu",
+                            array(
                     "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
                     "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
                     "DELAY" => "N",	// Откладывать выполнение шаблона меню
@@ -182,8 +211,8 @@ if (CModule::IncludeModule("iblock")) {
                     "ROOT_MENU_TYPE" => "main",	// Тип меню для первого уровня
                     "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
                 ),
-                    false
-                );?>
+                            false
+                        );?>
                 <div class="header__mobile">
                     <a class="header__tel" href="tel:+78123093154">
                         <svg width="18" height="18">
@@ -196,13 +225,13 @@ if (CModule::IncludeModule("iblock")) {
                         </div>
                         <div class="header__note">
                             <?$APPLICATION->IncludeComponent(
-                                "bitrix:main.include",
-                                "",
-                                Array(
+                    "bitrix:main.include",
+                    "",
+                    array(
                                     "AREA_FILE_SHOW" => "file",
                                     "PATH" => SITE_TEMPLATE_PATH.'/include/description_on_header.php'
                                 )
-                            );?>
+                );?>
                         </div>
                     </div>
                 </div>
@@ -210,11 +239,14 @@ if (CModule::IncludeModule("iblock")) {
             <div class="header__full-menu full-menu" data-full-menu>
                 <div class="container">
                     <div class="full-menu__head">
-                        <?$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+                        <?$APPLICATION->IncludeComponent(
+                                "bitrix:main.include",
+                                "",
+                                array(
                                 "AREA_FILE_SHOW" => "file",
                                 "PATH" => SITE_TEMPLATE_PATH.'/include/logo_header.php'
                             )
-                        );?>
+                            );?>
                         <button class="full-menu__close-btn button-close" type="button" aria-label="Закрыть" data-close>
                             <svg width="20" height="20">
                                 <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>
@@ -234,7 +266,10 @@ if (CModule::IncludeModule("iblock")) {
                             </label>
                         </form>
                     </div>
-                    <?$APPLICATION->IncludeComponent("bitrix:menu", "catalog", Array(
+                    <?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "catalog",
+                            array(
                         "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
                         "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
                         "DELAY" => "N",	// Откладывать выполнение шаблона меню
@@ -248,20 +283,23 @@ if (CModule::IncludeModule("iblock")) {
                         "ROOT_MENU_TYPE" => "bot_catalog",	// Тип меню для первого уровня
                         "USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
                     ),
-                        false
-                    );?>
+                            false
+                        );?>
                 </div>
             </div>
         </nav>
     </header>
     <main>
-    <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "main", Array(
+    <?$APPLICATION->IncludeComponent(
+                        "bitrix:breadcrumb",
+                        "main",
+                        array(
         "PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
         "SITE_ID" => "sn",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
         "START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
     ),
-        false
-    );?>
+                        false
+                    );?>
         <div class="popup" id="addincart-success" data-popup="">
             <div class="popup__container">
                 <h2 class="popup__title">Товар успешно добавлен в корзину</h2>
@@ -278,4 +316,3 @@ if (CModule::IncludeModule("iblock")) {
                 </ul>
             </div>
         </div>
-

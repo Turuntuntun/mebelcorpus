@@ -2,12 +2,22 @@
 use Bitrix\Highloadblock\HighloadBlockTable;
 use Bitrix\Main\EventManager;
 
+require_once __DIR__ . '/location_prices.php';
+
 AddEventHandler("main", "OnEpilog", "Redirect404");
 AddEventHandler("main", "OnBeforeProlog", "initCity");
+AddEventHandler("main", "OnBeforeUserAdd", "OnBeforeUserUpdateHandler");
+AddEventHandler("iblock", "OnBeforeIBlockPropertyUpdate", "OnBeforeIBlockPropertyUpdateHandler");
 function Redirect404() {
     if(defined("ERROR_404") ) {
         LocalRedirect("/404.php", "404 Not Found");
     }
+}
+
+function OnBeforeUserUpdateHandler(&$arFields)
+{
+    $arFields["LOGIN"] = $arFields["EMAIL"];
+    return $arFields;
 }
 
 function transformMonthInText($monthNumber)
@@ -55,6 +65,19 @@ function getClassHighload($tableName)
         return $hlClassName;
     }
     return false;
+}
+
+function OnBeforeIBlockPropertyUpdateHandler(&$arFields){
+//Проверяем, что идет обмен с 1С
+    if (!empty($_GET['mode']) && $_GET['mode'] == 'import') {
+
+        $arPropertiesInt = [
+            'Бренд',
+        ];
+        if (in_array($arFields['NAME'], $arPropertiesInt) && $arFields['PROPERTY_TYPE'] !== 'S') {
+            $arFields['PROPERTY_TYPE'] = 'S';
+        }
+    }
 }
 
  require_once __DIR__ . "/location_new.php";

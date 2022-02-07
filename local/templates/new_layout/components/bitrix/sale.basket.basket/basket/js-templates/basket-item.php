@@ -51,11 +51,11 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
                     <span class="cart-list__text cart-list__text--light"
                       data-column-property-code="{{CODE}}"
                       data-entity="basket-item-property-column-value">
-                        {{NAME}}:{{VALUE}}
+                        {{NAME}}: {{VALUE}}
                     </span>
                 {{/COLUMN_LIST}}
                 <a class="cart-list__name" href="{{DETAIL_PAGE_URL}}">{{NAME}}</a>
-<!--                <span class="cart-list__text">Цвет: Светлый дуб</span>-->
+                <span class="cart-list__text">Цвет: {{PROPS_ALL.COLORS.VALUE}}</span>
             </div>
         </div>
 

@@ -1,4 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) {
+    die();
+}
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -17,7 +19,7 @@ if ($arResult['SECTIONS']) :?>
     <div class="container">
         <h2 class="main-catalog__title title-second mb-60"><?=GetMessage('CT_BCSL_NAME_TITLE')?></h2>
         <ul class="main-catalog__list">
-            <? foreach ($arResult['SECTIONS'] as $key => $arItem) :?>
+            <?php foreach ($arResult['SECTIONS'] as $key => $arItem) :?>
             <li class="main-catalog__item main-catalog__item--<?=$arItem['UFD_CLASS']?>">
                 <a class="main-catalog__card" href="<?=$arItem['SECTION_PAGE_URL']?>">
                     <img class="main-catalog__img" src="<?=$arItem["PICTURE"]["SRC"]?>" alt="">
@@ -25,7 +27,7 @@ if ($arResult['SECTIONS']) :?>
                         <h3 class="main-catalog__caption title-third"><?=$arItem['NAME']?></h3>
                         <div class="main-catalog__btn button"><?=GetMessage('CT_BCSL_NAME_BUTTON')?></div>
                     </div></a></li>
-                    <? endforeach;?>
+                    <?php endforeach;?>
         </ul>
     </div>
 </section>

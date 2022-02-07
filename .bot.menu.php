@@ -1,53 +1,52 @@
-<?
-$aMenuLinks = Array(
-	Array(
-		"О компании", 
-		"", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Услуги", 
-		"/content/services/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новости", 
-		"", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новинки", 
-		"", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Документы", 
-		"/content/documents/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Пресс-кит", 
-		"/content/press-kit/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Снято с производства", 
-		"", 
-		Array(), 
-		Array(), 
-		"" 
-	)
+<?php
+$aMenuLinks = array(
+    array(
+        "О компании",
+        "/content/about/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Услуги",
+        "/content/services/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Новости",
+        "/content/news/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Новинки",
+        "/catalog/novinki/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Документы",
+        "/content/documents/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Пресс-кит",
+        "/content/press-kit/",
+        array(),
+        array(),
+        ""
+    ),
+    array(
+        "Снято с производства",
+        "/catalog/out_of/",
+        array(),
+        array(),
+        ""
+    )
 );
-?>

@@ -54,7 +54,7 @@ if ($arResult['DATA_SAVED'] == 'Y')
     </label>
     <div class="account__btns" data-change-block="person">
         <input class="account__save-btn button" type="submit" name="save" value="<?=GetMessage("SAVE")?>">
-        <input class="account__save-btn button button--ghost" type="reset" value="<?=GetMessage('RESET');?>">
+        <input class="account__save-btn button button--ghost" type="reset" value="<?=GetMessage('RESET');?>" data-change-cancel>
     </div>
 </form>
 

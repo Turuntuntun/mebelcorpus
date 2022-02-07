@@ -14,6 +14,7 @@ class UserCity
     public $page;
     public $application;
     public $userEntity;
+    const defaultId  = '64460';
 
     public function __construct()
     {
@@ -30,7 +31,7 @@ class UserCity
         if ($cityId) {
             return $cityId;
         }
-        return  '64460';
+        return  self::defaultId;
     }
 
     public static function getCurrentCity($userId)
@@ -38,16 +39,20 @@ class UserCity
         $arFilter = array("ID" => $userId);
         $arParams["SELECT"] = array("UF_CITY");
         $arRes = CUser::GetList($by,$desc,$arFilter,$arParams);
+
         if ($res = $arRes->Fetch()) {
-            return $res["UF_CITY"];
+            if ($res["UF_CITY"]) {
+                return $res["UF_CITY"];
+            }
         }
-        return false;
+        return  self::defaultId;
     }
 
     public function setCity($cityId)
     {
         if ($this->userId) {
             $this->setBaseCity($cityId);
+            $this->setSessoinCity($cityId);
         } else {
             $this->setSessoinCity($cityId);
         }
@@ -61,7 +66,8 @@ class UserCity
     
     public function setSessoinCity($cityID)
     {
-        $this->application->set_cookie("setCityId",$cityID);
+        $this->application->set_cookie("setCityId", $cityID);
+        $this->application->set_cookie("isCitySet", true);
     }
 
     public function init()
@@ -71,7 +77,7 @@ class UserCity
         $newCityId = $this->getCityIdFromRequest();
         if ($newCityId) {
             $this->setCity($newCityId);
-            LocalRedirect( $this->page);
+            LocalRedirect($this->page);
         }
 
     }

@@ -120,7 +120,7 @@ $APPLICATION->SetTitle("О компании");
 	false
 );?>
     <!-- Выезжающее модальное окно-->
-    <div class="vacancy__window modal" id="vacancy-form">
+    <div class="vacancy__window modal" id="vacancy-form" data-popup>
         <div class="modal__container">
             <h2 class="modal__title title-second">Отклик на вакансию</h2>
             <p class="modal__value">Руководитель отдела продаж</p>

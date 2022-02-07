@@ -181,6 +181,7 @@
     false
 );?>
 <!-- Выезжающее модальное окно-->
+<?php if (!$USER->IsAuthorized()) :?>
 <div class="modal modal--account" id="registration" data-popup>
     <div class="modal__container">
         <h2 class="modal__title title-second">Зарегистрироваться</h2>
@@ -189,59 +190,61 @@
                 <use xlink:href="<?=SITE_TEMPLATE_PATH?>/assets/images/sprite.svg#close"></use>
             </svg>
         </button>
+
         <div class="toggle-form mb-60">
             <button class="toggle-form__btn" data-tab-id="toggle-reg" data-tab-control="fiz">Физическое лицо</button>
             <button class="toggle-form__btn" data-tab-id="toggle-reg" data-tab-control="ur">Юридическое лицо</button>
         </div>
-        <form class="modal__form form" action="#" method="post" data-tab-id="toggle-reg" data-tab-block="fiz">
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="email" name="email" placeholder="Email">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="password" name="password" placeholder="Пароль">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="password" name="password" placeholder="Повторите пароль">
-                </label>
-            </div>
-            <button class="form__submit-btn button" type="submit">Регистрация</button>
-        </form>
-        <form class="modal__form form" action="#" method="post" data-tab-id="toggle-reg" data-tab-block="ur">
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="text" name="name" placeholder="ИНН организации">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="text" name="name" placeholder="Название организации">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="text" name="name" placeholder="Фамилия и имя">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="tel" name="tel" placeholder="Телефон">
-                </label>
-            </div>
-            <div class="form__item">
-                <label class="form__label">
-                    <input class="form__input" type="email" name="email" placeholder="E-mail">
-                </label>
-            </div>
-            <button class="form__submit-btn button" type="submit">Подать заявку</button>
-        </form>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:main.register",
+            "registr",
+            array(
+                'CODE_TAB' => 'fiz',
+                "AUTH" => "N",
+                "REQUIRED_FIELDS" => array(
+                ),
+                "SET_TITLE" => "N",
+                "SHOW_FIELDS" => array(
+                ),
+                "SUCCESS_PAGE" => "",
+                "USER_PROPERTY" => array(
+                ),
+                "USER_PROPERTY_NAME" => "",
+                "USE_BACKURL" => "Y",
+                "COMPONENT_TEMPLATE" => ".default"
+            ),
+            false
+        );?>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:main.register",
+            "registr",
+            array(
+                    'CODE_TAB' => 'ur',
+                "AUTH" => "N",
+                "REQUIRED_FIELDS" => array(
+                ),
+                "SET_TITLE" => "N",
+                "SHOW_FIELDS" => array(
+                    'PERSONAL_PHONE',
+                    'NAME',
+                    'LAST_NAME',
+                    'WORK_COMPANY',
+                    'WORK_FAX'
+                ),
+                "SUCCESS_PAGE" => "",
+                "USER_PROPERTY" => array(
+                ),
+                "USER_PROPERTY_NAME" => "",
+                "USE_BACKURL" => "Y",
+                "COMPONENT_TEMPLATE" => ".default"
+            ),
+            false
+        );?>
+
         <p class="modal__bot-text">Уже зарегистрированы? <a href="#" data-modal-trigger="login">Войти</a></p>
     </div>
 </div>
+<?php endif?>
 <!-- Выезжающее модальное окно-->
 <?$APPLICATION->IncludeComponent(
     "bitrix:main.feedback.custom",
@@ -319,6 +322,20 @@
         "STRICT_SECTION_CHECK" => "N"
     )
 );?>
+<div class="modal modal--account" id="logout" data-popup="">
+    <div class="modal__container">
+        <h2 class="modal__title title-second">Вы действительно<br> хотите выйти?</h2>
+        <button class="modal__close-btn button-close" type="button" aria-label="Закрыть окно" data-close="">
+            <svg width="24" height="24">
+                <use xlink:href="assets/images/sprite.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__btn-wrap">
+            <a class="modal__btn button button--ghost" href="/?logout=yes">Выйти</a>
+            <button class="modal__btn button" data-cancel-btn="">Отмена</button>
+        </div>
+    </div>
+</div>
 </div>
 <div class="overlay" aria-label="Закрыть окно"></div>
 </body>
